@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>five</key>
+	<dict>
+		<key>imageName</key>
+		<string>5-5</string>
+		<key>selectImageName</key>
+		<string>55-5</string>
+		<key>controllerName</key>
+		<string>MerchantSetViewController</string>
+		<key>titleName</key>
+		<string>营销管理</string>
+	</dict>
+	<key>one</key>
+	<dict>
+		<key>imageName</key>
+		<string>1</string>
+		<key>selectImageName</key>
+		<string>1-1</string>
+		<key>controllerName</key>
+		<string>StoreManageViewController</string>
+		<key>titleName</key>
+		<string>主页</string>
+	</dict>
+	<key>two</key>
+	<dict>
+		<key>imageName</key>
+		<string>2</string>
+		<key>selectImageName</key>
+		<string>2-2</string>
+		<key>controllerName</key>
+		<string>CommodityManageViewController</string>
+		<key>titleName</key>
+		<string>商品管理</string>
+	</dict>
+	<key>three</key>
+	<dict>
+		<key>imageName</key>
+		<string>3</string>
+		<key>selectImageName</key>
+		<string>3-3</string>
+		<key>controllerName</key>
+		<string>POSManageViewController</string>
+		<key>titleName</key>
+		<string>POS管理</string>
+	</dict>
+	<key>four</key>
+	<dict>
+		<key>imageName</key>
+		<string>4</string>
+		<key>selectImageName</key>
+		<string>4-4</string>
+		<key>controllerName</key>
+		<string>PersonCenterViewController</string>
+		<key>titleName</key>
+		<string>商户中心</string>
+	</dict>
+</dict>
+</plist>

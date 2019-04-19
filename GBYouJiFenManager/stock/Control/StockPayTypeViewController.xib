@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StockPayTypeViewController">
+            <connections>
+                <outlet property="payButton" destination="4R4-g2-fbs" id="5se-ZU-WT9"/>
+                <outlet property="tableview" destination="czQ-7w-Wwq" id="cMr-je-94Z"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="czQ-7w-Wwq">
+                    <rect key="frame" x="0.0" y="64" width="375" height="545"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="eN0-sK-MTi"/>
+                        <outlet property="delegate" destination="-1" id="ocM-yL-8Eo"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4R4-g2-fbs">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="zEj-3O-wWf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="pay:" destination="-1" eventType="touchUpInside" id="Rbf-Ve-b3t"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="czQ-7w-Wwq" secondAttribute="bottom" constant="58" id="Epm-RG-9iJ"/>
+                <constraint firstAttribute="trailing" secondItem="4R4-g2-fbs" secondAttribute="trailing" id="LoX-ed-V2c"/>
+                <constraint firstItem="4R4-g2-fbs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZQB-oA-Gan"/>
+                <constraint firstAttribute="bottom" secondItem="4R4-g2-fbs" secondAttribute="bottom" id="bmP-k9-Jiw"/>
+                <constraint firstItem="czQ-7w-Wwq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="lGB-fG-dD7"/>
+                <constraint firstAttribute="trailing" secondItem="czQ-7w-Wwq" secondAttribute="trailing" id="oo1-zV-Yym"/>
+                <constraint firstItem="czQ-7w-Wwq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zlm-Fc-nOh"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="66.5"/>
+        </view>
+    </objects>
+</document>

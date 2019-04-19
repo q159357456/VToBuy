@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DosAgeView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNk-KO-VwP">
+                    <rect key="frame" x="23" y="323" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="42" id="1dH-9O-nIE"/>
+                        <constraint firstAttribute="height" constant="21" id="VgC-Zl-pkz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOq-cC-WXm">
+                    <rect key="frame" x="128" y="323" width="31" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="VG3-Yh-q32"/>
+                        <constraint firstAttribute="height" constant="21" id="bbI-gi-q7F"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHP-C1-EE8">
+                    <rect key="frame" x="92" y="318" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Mrv-yg-54p"/>
+                        <constraint firstAttribute="width" constant="30" id="qKF-kJ-NvU"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="mince"/>
+                    <connections>
+                        <action selector="pluse:" destination="iN0-l3-epB" eventType="touchUpInside" id="HP7-ZM-oYG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONX-cv-QKt">
+                    <rect key="frame" x="167" y="318" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="F1E-C0-WOo"/>
+                        <constraint firstAttribute="width" constant="30" id="RCs-pK-ZpF"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="pluse"/>
+                    <connections>
+                        <action selector="mince:" destination="iN0-l3-epB" eventType="touchUpInside" id="lWU-VS-sxg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fk-f5-40l">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Yab-Bc-7vT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <state key="normal" title="完成">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="done:" destination="iN0-l3-epB" eventType="touchUpInside" id="2zT-Ka-akx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IOq-cC-WXm" firstAttribute="leading" secondItem="QHP-C1-EE8" secondAttribute="trailing" constant="6" id="2tl-FY-wo3"/>
+                <constraint firstItem="QHP-C1-EE8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9fm-os-uXc"/>
+                <constraint firstItem="kNk-KO-VwP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="23" id="Ar6-R7-WOb"/>
+                <constraint firstItem="kNk-KO-VwP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Flh-JG-aCs"/>
+                <constraint firstItem="QHP-C1-EE8" firstAttribute="leading" secondItem="kNk-KO-VwP" secondAttribute="trailing" constant="27" id="JmT-VZ-9I9"/>
+                <constraint firstItem="ONX-cv-QKt" firstAttribute="leading" secondItem="IOq-cC-WXm" secondAttribute="trailing" constant="8" id="TFI-XY-j1C"/>
+                <constraint firstItem="ONX-cv-QKt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="cth-LU-6ha"/>
+                <constraint firstAttribute="trailing" secondItem="9fk-f5-40l" secondAttribute="trailing" id="qby-6H-cgn"/>
+                <constraint firstItem="IOq-cC-WXm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tb3-Tk-RSj"/>
+                <constraint firstAttribute="bottom" secondItem="9fk-f5-40l" secondAttribute="bottom" id="usn-6r-ApV"/>
+                <constraint firstItem="9fk-f5-40l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yIh-iS-4ld"/>
+            </constraints>
+            <connections>
+                <outlet property="doneButton" destination="9fk-f5-40l" id="sB7-Or-rWg"/>
+                <outlet property="lable" destination="IOq-cC-WXm" id="uHU-0f-jBR"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="61.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mince" width="32" height="32"/>
+        <image name="pluse" width="32" height="32"/>
+    </resources>
+</document>

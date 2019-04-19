@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClipManagerViewController">
+            <connections>
+                <outlet property="doneButton" destination="fvi-Qu-E3M" id="BB4-Qo-q02"/>
+                <outlet property="tableview" destination="UQY-Fj-QTi" id="hj7-FT-fxV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvi-Qu-E3M">
+                    <rect key="frame" x="0.0" y="607" width="187.5" height="60"/>
+                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="rEd-kZ-t11"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <state key="normal" title="添加卡券">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="add:" destination="-1" eventType="touchUpInside" id="5NQ-53-MxK"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="UQY-Fj-QTi">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="dUe-hv-Xra"/>
+                        <outlet property="delegate" destination="-1" id="Kxz-UF-U0x"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cq8-C2-ICB">
+                    <rect key="frame" x="187.5" y="607" width="187.5" height="60"/>
+                    <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <state key="normal" title="添加股东券">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="zwhAddCard:" destination="-1" eventType="touchUpInside" id="U0T-Gt-bWB"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cq8-C2-ICB" secondAttribute="bottom" id="79E-eg-mge"/>
+                <constraint firstItem="UQY-Fj-QTi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KRI-E6-2Fr"/>
+                <constraint firstItem="fvi-Qu-E3M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Otx-dw-kJa"/>
+                <constraint firstItem="UQY-Fj-QTi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="W63-qi-m1y"/>
+                <constraint firstItem="cq8-C2-ICB" firstAttribute="height" secondItem="fvi-Qu-E3M" secondAttribute="height" id="cfV-e4-Tns"/>
+                <constraint firstAttribute="trailing" secondItem="cq8-C2-ICB" secondAttribute="trailing" id="efJ-ry-gqO"/>
+                <constraint firstItem="cq8-C2-ICB" firstAttribute="leading" secondItem="fvi-Qu-E3M" secondAttribute="trailing" id="sQd-bV-mVp"/>
+                <constraint firstAttribute="bottom" secondItem="fvi-Qu-E3M" secondAttribute="bottom" id="sUC-gp-BEH"/>
+                <constraint firstItem="cq8-C2-ICB" firstAttribute="width" secondItem="fvi-Qu-E3M" secondAttribute="width" id="vIH-4d-bF5"/>
+                <constraint firstAttribute="trailing" secondItem="UQY-Fj-QTi" secondAttribute="trailing" id="vKp-U0-QUm"/>
+                <constraint firstItem="fvi-Qu-E3M" firstAttribute="top" secondItem="UQY-Fj-QTi" secondAttribute="bottom" id="zOi-c7-TFk"/>
+            </constraints>
+            <point key="canvasLocation" x="32.799999999999997" y="54.422788605697157"/>
+        </view>
+    </objects>
+</document>

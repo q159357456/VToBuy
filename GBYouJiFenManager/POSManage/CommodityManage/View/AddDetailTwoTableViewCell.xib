@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AddDetailTwoTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvQ-tk-dmn">
+                        <rect key="frame" x="8" y="0.0" width="76" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="76" id="Kiu-fj-aEr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ijO-o6-a7X">
+                        <rect key="frame" x="206" y="8" width="106" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="106" id="1fi-Ih-0dW"/>
+                            <constraint firstAttribute="height" constant="28" id="JMe-LR-7SK"/>
+                        </constraints>
+                        <segments>
+                            <segment title="是"/>
+                            <segment title="否"/>
+                        </segments>
+                        <connections>
+                            <action selector="choseSeg:" destination="KGk-i7-Jjw" eventType="valueChanged" id="FG7-4S-wqZ"/>
+                        </connections>
+                    </segmentedControl>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cvQ-tk-dmn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="7I0-2s-6Mg"/>
+                    <constraint firstItem="cvQ-tk-dmn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="E7j-iU-CCv"/>
+                    <constraint firstItem="ijO-o6-a7X" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EAp-Ih-kTh"/>
+                    <constraint firstAttribute="trailing" secondItem="ijO-o6-a7X" secondAttribute="trailing" constant="8" id="hmJ-by-csI"/>
+                    <constraint firstAttribute="bottom" secondItem="cvQ-tk-dmn" secondAttribute="bottom" id="kPE-ol-OZB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="Twidth" destination="Kiu-fj-aEr" id="age-Ag-nbm"/>
+                <outlet property="choseSegMent" destination="ijO-o6-a7X" id="Rd0-sR-aXA"/>
+                <outlet property="titleLable" destination="cvQ-tk-dmn" id="K6P-zx-1HV"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

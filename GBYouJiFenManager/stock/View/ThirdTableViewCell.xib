@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ThirdTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务电话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsJ-AK-58c">
+                        <rect key="frame" x="8" y="0.0" width="79" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="79" id="aF1-gm-wMS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18818553606" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6D-0l-9Dw">
+                        <rect key="frame" x="95" y="0.0" width="117" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="117" id="PzI-zM-BAJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-Az-g4Z">
+                        <rect key="frame" x="272" y="2" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="eaz-A8-8Sd"/>
+                            <constraint firstAttribute="height" constant="40" id="nxa-Gm-v4p"/>
+                        </constraints>
+                        <state key="normal" image="call"/>
+                        <connections>
+                            <action selector="call:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dE5-3E-2nL"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gsJ-AK-58c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1eP-rR-nUJ"/>
+                    <constraint firstAttribute="bottom" secondItem="gsJ-AK-58c" secondAttribute="bottom" id="3E4-6Y-aI7"/>
+                    <constraint firstAttribute="trailing" secondItem="Qgh-Az-g4Z" secondAttribute="trailing" constant="8" id="Myn-Je-hWl"/>
+                    <constraint firstItem="J6D-0l-9Dw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Uh3-St-ASY"/>
+                    <constraint firstItem="J6D-0l-9Dw" firstAttribute="leading" secondItem="gsJ-AK-58c" secondAttribute="trailing" constant="8" id="ZE4-hO-tMq"/>
+                    <constraint firstAttribute="bottom" secondItem="J6D-0l-9Dw" secondAttribute="bottom" id="bdc-W3-2dF"/>
+                    <constraint firstItem="gsJ-AK-58c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kQU-lf-h7L"/>
+                    <constraint firstItem="Qgh-Az-g4Z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vSQ-Ef-3mA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="phoneNu" destination="J6D-0l-9Dw" id="sQF-mB-HMs"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="call" width="20" height="20"/>
+    </resources>
+</document>

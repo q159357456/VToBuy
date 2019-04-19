@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SZCalendarView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgx-cs-QtW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krf-Oc-L7R">
+                            <rect key="frame" x="185" y="8" width="1" height="29"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="6B1-a0-4yr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ztk-W2-4fK">
+                            <rect key="frame" x="0.0" y="0.0" width="181" height="45"/>
+                            <state key="normal" title="起始时间(7-01)"/>
+                            <connections>
+                                <action selector="start:" destination="iN0-l3-epB" eventType="touchUpInside" id="N61-4m-1FY"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTr-XV-xKG">
+                            <rect key="frame" x="189" y="0.0" width="186" height="45"/>
+                            <state key="normal" title="起始时间(7-01)"/>
+                            <connections>
+                                <action selector="end:" destination="iN0-l3-epB" eventType="touchUpInside" id="tGG-g8-LeJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="oTr-XV-xKG" secondAttribute="bottom" id="4LX-8g-mOf"/>
+                        <constraint firstItem="Ztk-W2-4fK" firstAttribute="leading" secondItem="Tgx-cs-QtW" secondAttribute="leading" id="62w-yY-DNw"/>
+                        <constraint firstAttribute="bottom" secondItem="Ztk-W2-4fK" secondAttribute="bottom" id="LN1-aN-3Uo"/>
+                        <constraint firstItem="krf-Oc-L7R" firstAttribute="centerY" secondItem="Tgx-cs-QtW" secondAttribute="centerY" id="Qel-2n-v0V"/>
+                        <constraint firstItem="krf-Oc-L7R" firstAttribute="top" secondItem="Tgx-cs-QtW" secondAttribute="top" constant="8" id="Xq4-8H-5u9"/>
+                        <constraint firstAttribute="height" constant="45" id="YEV-we-rko"/>
+                        <constraint firstItem="Ztk-W2-4fK" firstAttribute="top" secondItem="Tgx-cs-QtW" secondAttribute="top" id="Zye-2h-nTf"/>
+                        <constraint firstItem="oTr-XV-xKG" firstAttribute="leading" secondItem="krf-Oc-L7R" secondAttribute="trailing" constant="3" id="fWo-wM-MBO"/>
+                        <constraint firstItem="oTr-XV-xKG" firstAttribute="top" secondItem="Tgx-cs-QtW" secondAttribute="top" id="pfK-UC-FNm"/>
+                        <constraint firstAttribute="bottom" secondItem="krf-Oc-L7R" secondAttribute="bottom" constant="8" id="r7c-UD-nXJ"/>
+                        <constraint firstItem="krf-Oc-L7R" firstAttribute="centerX" secondItem="Tgx-cs-QtW" secondAttribute="centerX" constant="-2" id="ti9-kY-aIh"/>
+                        <constraint firstAttribute="trailing" secondItem="oTr-XV-xKG" secondAttribute="trailing" id="u9P-GC-F57"/>
+                        <constraint firstItem="krf-Oc-L7R" firstAttribute="leading" secondItem="Ztk-W2-4fK" secondAttribute="trailing" constant="4" id="uy7-1E-aRx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Tgx-cs-QtW" secondAttribute="trailing" id="4mS-Aa-aZO"/>
+                <constraint firstItem="Tgx-cs-QtW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XZJ-mn-XEa"/>
+                <constraint firstItem="Tgx-cs-QtW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hSO-kI-GvV"/>
+            </constraints>
+            <connections>
+                <outlet property="endButton" destination="oTr-XV-xKG" id="jKM-bD-d08"/>
+                <outlet property="startButton" destination="Ztk-W2-4fK" id="Fpt-cY-ZTC"/>
+            </connections>
+            <point key="canvasLocation" x="35.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

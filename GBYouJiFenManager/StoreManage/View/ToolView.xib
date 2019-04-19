@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ToolView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wudingdan" translatesAutoresizingMaskIntoConstraints="NO" id="UFa-do-7bh">
+                    <rect key="frame" x="137" y="283" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="GMy-4Y-UUm"/>
+                        <constraint firstAttribute="width" constant="100" id="Rf7-wB-aSA"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无待收款订单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yX8-Sp-4Lm">
+                    <rect key="frame" x="0.0" y="391" width="375" height="30"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="WXj-Tl-vDt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UFa-do-7bh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="FO6-gg-OP7"/>
+                <constraint firstItem="UFa-do-7bh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="QVw-N3-dMJ"/>
+                <constraint firstItem="yX8-Sp-4Lm" firstAttribute="top" secondItem="UFa-do-7bh" secondAttribute="bottom" constant="8" id="Qo9-ZX-eys"/>
+                <constraint firstItem="yX8-Sp-4Lm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cVs-vz-xBt"/>
+                <constraint firstAttribute="trailing" secondItem="yX8-Sp-4Lm" secondAttribute="trailing" id="qr4-eG-OYz"/>
+            </constraints>
+            <connections>
+                <outlet property="lable" destination="yX8-Sp-4Lm" id="pAL-6d-fcV"/>
+            </connections>
+            <point key="canvasLocation" x="35.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wudingdan" width="104" height="104"/>
+    </resources>
+</document>

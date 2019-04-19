@@ -1,0 +1,189 @@
+//
+//  PrefixHeader.pch
+//  GBManagement
+//
+//  Created by 张帆 on 16/11/10.
+//  Copyright © 2016年 工博计算机. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define  KEY_USERNAME_PASSWORD @"com.company.app.usernamepassword"
+#define  KEY_USERNAME @"com.company.app.username"
+#define  KEY_PASSWORD @"com.company.app.password"
+#define DefineWeakSelf __weak __typeof(self) weakSelf = self
+#define RGBA(r, g, b, a)                    [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGB(r, g, b)                        RGBA(r, g, b, 1.0f)
+#define PC01 @"P101"
+#define screen_width [UIScreen mainScreen].bounds.size.width
+#define screen_height [UIScreen mainScreen].bounds.size.height
+#define UIColorFromRGB(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:1.0]
+
+#define nsLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define NSLog(format, ...)
+#endif
+#define requsetSize @"20"
+#define MShop @"MShop"
+#define MCompany @"GB01"
+#define WX_AppID @"wxc3634aeb0c228038"
+//微信&支付宝APP支付
+#define AppPay @"PosService.asmx/AppPay"
+#define Forceupdate  @"Forceupdate"
+#define Noupdate  @"Noupdate"
+#define Waiteupdate  @"Waiteupdate"
+#define StatusNotReachable  @"StatusNotReachable"
+#define StatusReachableViaWiFi  @"StatusReachableViaWiFi"
+#define StatusReachableViaWWAN  @"StatusReachableViaWWAN"
+
+#define COMID @"GB01";
+
+
+// 注册通知
+#define NOTIFY_ADD(_noParamsFunc, _notifyName)  [[NSNotificationCenter defaultCenter] \
+addObserver:self \
+selector:@selector(_noParamsFunc) \
+name:_notifyName \
+object:nil];
+
+
+// 发送通知
+#define NOTIFY_POST(_notifyName)   [[NSNotificationCenter defaultCenter] postNotificationName:_notifyName object:nil];
+
+// 移除通知
+#define NOTIFY_REMOVE(_notifyName) [[NSNotificationCenter defaultCenter] removeObserver:self name:_notifyName object:nil];
+#define NOTIFY_REMOVEALL [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+//通知
+#define NOTIFY_SHARES @"zwhshares"
+
+//颜色
+//#define defaultColor1 RGB(248,248,248)
+//#define MainColor [ColorTool colorWithHexString:@"#feb500"]
+//#define MainColor [ColorTool colorWithHexString:@"#FC246D"]
+#define MainColor [ColorTool colorWithHexString:@"13af68"]
+
+
+// ***** 主色 *****//
+#define MAINCOLOR [ColorTool colorWithHexString:@"#FF9800"]
+
+#define defaultColor1 RGB(248,248,248)
+//#define navigationBarColor [ColorTool colorWithHexString:@"#FF2F4E"]
+//#define navigationBarColor [ColorTool colorWithHexString:@"#FF9800"]
+#define navigationBarColor [ColorTool colorWithHexString:@"13af68"]
+
+#define NotifacStock   @"StockNotifaction"
+// ***** 分割线颜色 *****//
+#define LINECOLOR [ColorTool colorWithHexString:@"f3f3f3"]
+// ***** 背景颜色 *****//
+#define BACKCOLOR [ColorTool colorWithHexString:@"f0f0f0"]
+// ***** 深灰 *****//
+#define DEEPLINE [ColorTool colorWithHexString:@"808080"]
+//***** 灰色背景颜色 *****//
+#define GRAYBACKCOLOR RGBALPHA(246, 246, 246, 1)
+//***** 随机颜色 *****//
+#define randomColor [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0f]
+
+#define VERSION (NSString *)[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define APP_ID @"1435426939"
+
+//字体
+#define ZWHFont(s) [UIFont systemFontOfSize:s* MULPITLE]
+//[UIFont fontWithName:@"Helvetica-Light" size:s / 2 * MULPITLE]
+#define MULPITLE [[UIScreen mainScreen] bounds].size.width / 375
+
+// 弱引用
+#define MJWeakSelf __weak typeof(self) weakSelf = self;
+//判读您是否Iphonex
+#define ISIphoneX [JsonTools isNavX]?YES:NO
+
+//导航栏高度
+#define ZWHNavHeight ([JsonTools isNavX]?88.0f:64.0f)
+
+#define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
+#define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
+
+#define STATES_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
+//屏幕宽高
+#define ScreenWidth CGRectGetWidth([UIScreen mainScreen].bounds)
+#define ScreenHeight CGRectGetHeight([UIScreen mainScreen].bounds)
+#define PLACEVIEW   [[NSBundle mainBundle]loadNibNamed:@"PlaceholderView" owner:nil options:nil][0]
+// ***** 屏幕宽高 *****//
+#define WIDTH_PRO(X) (X)*(SCREEN_WIDTH/375)
+#define HEIGHT_PRO(Y) (Y)*(SCREEN_HEIGHT/667)
+
+// ***** cell分割线 *****//
+#define CellLine     UIView *butomLineZWH = [[UIView alloc]init];\
+butomLineZWH.backgroundColor = LINECOLOR; \
+[self.contentView addSubview:butomLineZWH]; \
+[butomLineZWH mas_makeConstraints:^(MASConstraintMaker *make) {\
+make.left.right.bottom.equalTo(self.contentView); \
+make.height.mas_equalTo(1);\
+}];\
+//读取本地图片
+#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:［NSBundle mainBundle]pathForResource:file ofType:ext］
+//密文
+#define CIPHERTEXT @"6you7QLfbASAFzt0HYAaRJA4yHwAIS4uY3OmqkaeXsSdjcP8cEBrQQ=="
+
+//短息模版
+#define Temp_ID @"145629"
+//外网入口
+//#define  ENTERIP @"http://121.201.28.179:8089/webservice"
+
+//外网入口
+#define  ENTERIP @"http://vweb.dgyjian.com/webservice"
+
+
+
+//#define ROOTPATH [[NSUserDefaults standardUserDefaults]objectForKey:@"requstIP"]
+
+
+#define ROOTPATH @"http://vweb.dgyjian.com/webservice"
+
+
+//图片服务器
+#define PICTUREPATH [[NSUserDefaults standardUserDefaults]objectForKey:@"imageIP"]
+//获取营业日期【当前日期，营业日期，N（0未开业/1已开业同天/2已开业不同天）】
+#define GetBusinessDate @"posservice.asmx/GetBusinessDate"
+//获取班次，班次序号【班次编号，班次名称，班次序号，条件判定（为0表示读取班次不对）】
+#define GetClassesInfo @"posservice.asmx/GetClassesInfo"
+#define BUTTON_WIDTH (ScreenWidth - 90) / 3
+#define BUTTON_HEIGHT 36
+#define BG_CELL UIColorFromRGBA(250, 250, 250, 1.0)
+#define currentCity (@"currentCity")
+#define UIColorFromRGBA(r, g, b , a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define SystemCommService @"SystemCommService.asmx/GetCommSelectDataInfo3"
+//#define TagsTitleFont [UIFont systemFontOfSize:14]
+#define PUSHAPPKEY @"7909b665e8ce44803dfcfba0"
+#import "SVProgressHUD.h"
+#import "FMDB.h"
+#import "MJRefresh.h"
+#import "AFNetworking.h"
+#import "JsonTools.h"
+#import "NetDataTool.h"
+#import "PlaceholderView.h"
+#import "ColorTool.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+#import "Masonry.h"
+#import "MJRefresh.h"
+#import "NSString+addtion.h"
+#import "UIView+Extension.h"
+#import <QMUIKit/QMUIKit.h>
+#import "UIViewController+NavBarHidden.h"
+#import "NSDate+Extension.h"
+#import "WSDatePickerView.h"
+#import "MemberModel.h"
+#import "FMDBMember.h"
+#import <MJExtension.h>
+#import "DataProcess.h"
+#ifdef __OBJC__
+
+
+#endif
+
+
+ /* PrefixHeader_pch */

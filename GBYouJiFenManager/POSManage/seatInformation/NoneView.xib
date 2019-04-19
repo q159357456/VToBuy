@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NoneView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未查询到相关数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GE-km-VPj">
+                    <rect key="frame" x="115" y="323" width="144" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="B8Y-mU-In7"/>
+                        <constraint firstAttribute="width" constant="144" id="gGE-A3-6Rd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="5BB-0s-crF">
+                    <rect key="frame" x="92" y="323" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="0aD-PS-sXN"/>
+                        <constraint firstAttribute="height" constant="21" id="qDg-Lb-5ai"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7GE-km-VPj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5b9-nq-bFl"/>
+                <constraint firstItem="5BB-0s-crF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="JCw-LI-1Kd"/>
+                <constraint firstItem="7GE-km-VPj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="llz-Pk-RUY"/>
+                <constraint firstItem="7GE-km-VPj" firstAttribute="leading" secondItem="5BB-0s-crF" secondAttribute="trailing" constant="2" id="nQ6-7b-vI5"/>
+            </constraints>
+            <point key="canvasLocation" x="35.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="search" width="31" height="32"/>
+    </resources>
+</document>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="FirstTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6rf-le-k0U">
+                        <rect key="frame" x="8" y="8" width="64" height="63"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="6rf-le-k0U" secondAttribute="height" multiplier="64:63" id="OBS-B0-FKi"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQx-Pl-7At">
+                        <rect key="frame" x="80" y="8" width="44" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="rbx-9z-PUD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-Zd-tEf">
+                        <rect key="frame" x="109" y="53" width="203" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StorePre_1" translatesAutoresizingMaskIntoConstraints="NO" id="e5f-dk-C2Q">
+                        <rect key="frame" x="80" y="49" width="21" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="1ef-1w-kHV"/>
+                            <constraint firstAttribute="width" constant="21" id="yK0-oM-ETV"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="e5f-dk-C2Q" firstAttribute="leading" secondItem="6rf-le-k0U" secondAttribute="trailing" constant="8" id="1fA-5K-1fY"/>
+                    <constraint firstAttribute="trailing" secondItem="bc8-Zd-tEf" secondAttribute="trailing" constant="8" id="6he-Zj-arv"/>
+                    <constraint firstAttribute="bottom" secondItem="e5f-dk-C2Q" secondAttribute="bottom" constant="9" id="GUC-hF-xPb"/>
+                    <constraint firstItem="6rf-le-k0U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="I2Q-o3-7yp"/>
+                    <constraint firstAttribute="bottom" secondItem="bc8-Zd-tEf" secondAttribute="bottom" constant="9" id="Lbe-Wt-GpA"/>
+                    <constraint firstItem="6rf-le-k0U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="PxS-pe-M4U"/>
+                    <constraint firstAttribute="bottom" secondItem="6rf-le-k0U" secondAttribute="bottom" constant="8" id="TDA-BG-7Dl"/>
+                    <constraint firstItem="MQx-Pl-7At" firstAttribute="leading" secondItem="6rf-le-k0U" secondAttribute="trailing" constant="8" id="Zbj-1T-nKJ"/>
+                    <constraint firstItem="bc8-Zd-tEf" firstAttribute="leading" secondItem="e5f-dk-C2Q" secondAttribute="trailing" constant="8" id="Zwd-PP-XUI"/>
+                    <constraint firstItem="MQx-Pl-7At" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="g4J-Tk-W2H"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="adreeLable" destination="bc8-Zd-tEf" id="KfT-Su-axC"/>
+                <outlet property="shopLable" destination="MQx-Pl-7At" id="mzE-nt-Acw"/>
+                <outlet property="titleImage" destination="6rf-le-k0U" id="Q4m-Sx-LQX"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="StorePre_1" width="40" height="40"/>
+    </resources>
+</document>

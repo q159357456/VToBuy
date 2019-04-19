@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettleAccountViewController">
+            <connections>
+                <outlet property="doneButton" destination="7Zv-7q-sPj" id="9TP-GX-TIw"/>
+                <outlet property="table" destination="FT3-cL-Cxu" id="xPT-dC-Kxe"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zv-7q-sPj">
+                    <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                    <color key="backgroundColor" red="1" green="0.68651448388354785" blue="0.1109617087323036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="qX8-Ig-xxf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <state key="normal" title="完成">
+                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    </state>
+                    <connections>
+                        <action selector="sureButtonClick:" destination="-1" eventType="touchUpInside" id="cMh-wh-lzt"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FT3-cL-Cxu">
+                    <rect key="frame" x="0.0" y="64" width="375" height="543"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="FT3-cL-Cxu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="3Jn-fF-ogt"/>
+                <constraint firstItem="FT3-cL-Cxu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="86Z-Dm-yMh"/>
+                <constraint firstAttribute="trailing" secondItem="7Zv-7q-sPj" secondAttribute="trailing" id="EQM-My-NkZ"/>
+                <constraint firstAttribute="bottom" secondItem="7Zv-7q-sPj" secondAttribute="bottom" id="Ey7-QF-xSV"/>
+                <constraint firstItem="7Zv-7q-sPj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ds9-Yn-1Xc"/>
+                <constraint firstItem="7Zv-7q-sPj" firstAttribute="top" secondItem="FT3-cL-Cxu" secondAttribute="bottom" id="jge-0d-63b"/>
+                <constraint firstAttribute="trailing" secondItem="FT3-cL-Cxu" secondAttribute="trailing" id="o2m-Vd-L5q"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
