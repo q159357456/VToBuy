@@ -112,6 +112,18 @@
     _detail.text = @"已领取1/1";
     _quota.text = @"150元";
     _title.text = @"满100减10";
+    
+    self.deletBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.deletBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+    [self.deletBtn addTarget:self action:@selector(delet:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.deletBtn];
+    [self.deletBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.bottom.mas_equalTo(self.time.mas_bottom);
+        make.size.mas_equalTo(CGSizeMake(50, 25));
+        make.right.mas_equalTo(self.contentView.mas_right).offset(-16);
+    }];
+    
 }
 
 -(void)setModel:(CouponModel *)model{
@@ -132,7 +144,12 @@
 
 }
 
-
+-(void)delet:(UIButton*)sender{
+    
+    if (self.RefreshCallBack) {
+        self.RefreshCallBack();
+    }
+}
 
 
 

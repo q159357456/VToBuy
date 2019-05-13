@@ -45,6 +45,7 @@
 @property(nonatomic,copy)NSString *ProductSpec;
 @property(nonatomic,copy)NSString *ProductSpecName;
 @property(nonatomic,copy)NSString *DiscountMode;
+@property(nonatomic,copy)NSString *Bonus;
 
 
 @end
@@ -80,6 +81,7 @@
         self.ProductSpec=self.productModel.ProductSpec;
         self.ProductSpecName=self.productModel.ProductDesc;
         self.DiscountMode=self.productModel.DiscountMode;
+        self.Bonus = self.productModel.Bonus;
         //获取规格的名字
         
         NSString *str=[NSString stringWithFormat:@"%@%@",PICTUREPATH,self.productModel.PicAddress1];
@@ -88,10 +90,10 @@
         [_pictureArray  insertObject:data atIndex:0];
         NSString *runModel=[[NSUserDefaults standardUserDefaults]objectForKey:@"POS_RunModel"];
         if ([runModel isEqualToString:@"01"]||[runModel isEqualToString:@"02"]) {
-             _titleArray=@[@"商品分类",@"商品编号",@"商品名称",@"规格",@"单位",@"价格(元)",@"会员价"];
+             _titleArray=@[@"商品分类",@"商品编号",@"商品名称",@"规格",@"单位",@"积分",@"价格(元)",@"会员价"];
         }else
         {
-           _titleArray=@[@"商品分类",@"商品编号",@"商品名称",@"规格",@"条码编号",@"单位",@"价格(元)",@"会员价"];
+           _titleArray=@[@"商品分类",@"商品编号",@"商品名称",@"规格",@"条码编号",@"单位",@"积分",@"价格(元)",@"会员价"];
         }
         
     }else
@@ -111,10 +113,10 @@
         self.ProductSpecName=@"";
         NSString *runModel=[[NSUserDefaults standardUserDefaults]objectForKey:@"POS_RunModel"];
         if ([runModel isEqualToString:@"01"]||[runModel isEqualToString:@"02"]) {
-            _titleArray=@[@"商品分类",@"商品名称",@"规格",@"单位",@"价格(元)",@"会员价"];
+            _titleArray=@[@"商品分类",@"商品名称",@"规格",@"单位",@"积分",@"价格(元)",@"会员价"];
         }else
         {
-            _titleArray=@[@"商品分类",@"商品名称",@"规格",@"条码编号",@"单位",@"价格(元)",@"会员价"];
+            _titleArray=@[@"商品分类",@"商品名称",@"规格",@"条码编号",@"单位",@"积分",@"价格(元)",@"会员价"];
         }
 
         
@@ -567,11 +569,16 @@
                 break;
                 case 5:
                 {
+                    cell.inputText.text=self.Bonus;
+                    cell.inputText.keyboardType=UIKeyboardTypeDecimalPad;
+                }
+                case 6:
+                {
                     cell.inputText.text=self.price;
                     cell.inputText.keyboardType=UIKeyboardTypeDecimalPad;
                 }
                 break;
-                case 6:
+                case 7:
                 {
                     cell.inputText.text=self.memberPrice;
                     cell.inputText.placeholder = @"会员价可填可不填";
@@ -619,11 +626,17 @@
                 break;
                 case 4:
                 {
+                    cell.inputText.text=self.Bonus;
+                    cell.inputText.keyboardType=UIKeyboardTypeDecimalPad;
+                }
+                    break;
+                case 5:
+                {
                     cell.inputText.text=self.price;
                     cell.inputText.keyboardType=UIKeyboardTypeDecimalPad;
                 }
                 break;
-                case 5:
+                case 6:
                 {
                     cell.inputText.text=self.memberPrice;
                     cell.inputText.placeholder = @"会员价可填可不填";
@@ -688,11 +701,17 @@
                 break;
                 case 6:
                 {
+                    cell.inputText.text=self.Bonus;
+                    cell.inputText.keyboardType=UIKeyboardTypeDecimalPad;
+                }
+                    break;
+                case 7:
+                {
                     cell.inputText.text=self.price;
                     cell.inputText.keyboardType=UIKeyboardTypeDecimalPad;
                 }
                 break;
-                case 7:
+                case 8:
                 {
                     cell.inputText.text=self.memberPrice;
                     cell.inputText.placeholder = @"会员价可填可不填";
@@ -741,11 +760,17 @@
                 break;
                 case 5:
                 {
+                    cell.inputText.text=self.Bonus;
+                    cell.inputText.keyboardType=UIKeyboardTypeDecimalPad;
+                }
+                    break;
+                case 6:
+                {
                     cell.inputText.text=self.price;
                     cell.inputText.keyboardType=UIKeyboardTypeDecimalPad;
                 }
                 break;
-                case 6:
+                case 7:
                 {
                     cell.inputText.text=self.memberPrice;
                     cell.inputText.placeholder = @"会员价可填可不填";
@@ -804,11 +829,17 @@
                 break;
                 case 6:
                 {
+                    self.Bonus=textField.text;
+                    
+                }
+                    break;
+                case 7:
+                {
                     self.price=textField.text;
               
                 }
                 break;
-                case 7:
+                case 8:
                 {
                   self.memberPrice=textField.text;
                   
@@ -849,15 +880,24 @@
                 case 4:
                 {
                     self.danwei=textField.text;
+                   
                 }
                 break;
                 case 5:
+                {
+                    self.Bonus=textField.text;
+                
+                    
+                    
+                }
+                    break;
+                case 6:
                 {
                     self.price=textField.text;
                     
                 }
                 break;
-                case 6:
+                case 7:
                 {
                    self.memberPrice=textField.text;
                   
@@ -914,11 +954,17 @@
                 break;
                 case 7:
                 {
+                    self.Bonus=textField.text;
+                    
+                }
+                break;
+                case 8:
+                {
                    self.price=textField.text;
                    
                 }
                 break;
-                case 8:
+                case 9:
                 {
                     self.memberPrice=textField.text;;
                    
@@ -963,11 +1009,18 @@
                 break;
                 case 6:
                 {
+                    self.Bonus=textField.text;
+                    NSLog(@"Bonus==>%@",self.Bonus);
+                    
+                }
+                break;
+                case 7:
+                {
                     self.price=textField.text;
                  
                 }
                 break;
-                case 7:
+                case 8:
                 {
                     self.memberPrice=textField.text;
                  
@@ -1076,25 +1129,25 @@
         {
             if(self.memberPrice == nil ||self == NULL||[self.memberPrice isEqualToString:@""])
             {
-       jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }else
             {
-                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }
         }else
         {
             
             if(self.memberPrice == nil ||self == NULL||[self.memberPrice isEqualToString:@""]){
-            jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+            jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }else
             {
-                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }
         }
 
         NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
         NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",jsonStr);
+        NSLog(@"add_1_jsonStr===>%@",jsonStr);
         NSString *encodedImageStr = [_pictureArray[0] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
         NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":encodedImageStr,@"CipherText":CIPHERTEXT};
         [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
@@ -1136,26 +1189,26 @@
         {
             if(self.memberPrice == nil ||self == NULL||[self.memberPrice isEqualToString:@""])
             {
-                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }else
             {
-                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }
         }else
         {
             if(self.memberPrice == nil ||self == NULL||[self.memberPrice isEqualToString:@""])
             {
-           jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+           jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }else
             {
-                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Add",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"Property":@"p",@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }
         }
             
             
             NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
             NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",jsonStr);
+             NSLog(@"add_2_jsonStr===>%@",jsonStr);
             NSString *encodedImageStr = [_pictureArray[0] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
             NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":encodedImageStr,@"CipherText":CIPHERTEXT};
             [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
@@ -1209,24 +1262,24 @@
         if (_IsHotGoods.boolValue)
         {
             if (self.memberPrice == nil || self.memberPrice == NULL ||[self.memberPrice isEqualToString:@""]){
-                jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }else
             {
-                jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }
         }else
         {
            if (self.memberPrice == nil || self.memberPrice == NULL ||[self.memberPrice isEqualToString:@""]){
-               jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+               jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
           }else
           {
-            jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+            jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
          }
     }
 
         NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
         NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",jsonStr);
+        NSLog(@"edit_1_jsonStr===>%@",jsonStr);
         NSString *encodedImageStr = [_pictureArray[0] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
         NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":encodedImageStr,@"CipherText":CIPHERTEXT};
         [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
@@ -1267,18 +1320,18 @@
            if (_IsHotGoods.boolValue)
            {
             if (self.memberPrice == nil || self.memberPrice == NULL ||[self.memberPrice isEqualToString:@""]){
-                jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }else
             {
-                jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+                jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"SellPrice2":_specialfield.text,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
             }
         }else
            {
            if (self.memberPrice == nil || self.memberPrice == NULL ||[self.memberPrice isEqualToString:@""]){
-         jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+         jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
            }else
             {
-         jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode}]};
+         jsonDic=@{ @"Command":@"Edit",@"TableName":@"Inv_Product",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"CREATOR":@"admin",@"Classify_2":self.productClassify,@"ProductName":self.productName,@"UPC_BarCode":self.tiaoxinNo,@"Unit":self.danwei,@"IsUpDown":self.statuse,@"IsWeigh":self.valid,@"RetailPrice":self.price,@"ProductDesc":self.ProductSpecName,@"ProductNo":self.productModel.ProductNo,@"SellPrice1":_memberPrice,@"IsHotGoods":_IsHotGoods,@"IsReceive":_IsReceive,@"ProductSpec":self.ProductSpec,@"DiscountMode":self.DiscountMode,@"Bonus":self.Bonus}]};
            }
         }
             
@@ -1286,7 +1339,7 @@
             
             NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
             NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",jsonStr);
+            NSLog(@"edit_2_jsonStr===>%@",jsonStr);
             NSString *encodedImageStr = [_pictureArray[0] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
             NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":encodedImageStr,@"CipherText":CIPHERTEXT};
             [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
@@ -1329,10 +1382,19 @@
     
     
 }
+
+-(NSString *)Bonus
+{
+    if (!_Bonus) {
+        _Bonus = @"0.0000";
+    }
+    return _Bonus;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end

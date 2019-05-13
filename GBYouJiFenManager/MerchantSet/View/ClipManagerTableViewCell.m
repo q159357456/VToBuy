@@ -21,6 +21,12 @@
     _shareBtn.layer.masksToBounds = YES;
     //[_shareBtn setImage:[[UIImage imageNamed:@"80"] qmui_imageWithTintColor:[UIColor redColor]] forState:0];
 }
+- (IBAction)delet:(UIButton *)sender {
+    if (self.deletCallBack) {
+        self.deletCallBack();
+    }
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

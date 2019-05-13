@@ -68,7 +68,7 @@
     [dict setValue:@(10) forKey:@"pagesize"];
     [dict setValue:CIPHERTEXT forKey:@"CipherText"];
     MJWeakSelf;
-    [[NetDataTool shareInstance] zwhgetNetData:ROOTPATH url:@"PosService.asmx/ShopCouponList" With:dict and:^(id responseObject) {
+    [[NetDataTool shareInstance] zwhgetNetData:ROOTPATH url:@"/PosService.asmx/ShopCouponList" With:dict and:^(id responseObject) {
         NSDictionary *resdict=[JsonTools getData:responseObject];
         NSLog(@"%@",resdict);
         if ([resdict[@"message"] isEqualToString:@"OK"]) {
@@ -131,7 +131,8 @@
     ZWHCardListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZWHCardListTableViewCell" forIndexPath:indexPath];
     cell.selectionStyle = 0;
     if (_dataArray.count >0) {
-        cell.model = _dataArray[indexPath.row];
+        CouponModel *model = _dataArray[indexPath.row];
+        cell.model = model;
         cell.share.tag = indexPath.row;
         [cell.share addTarget:self action:@selector(shareQRWith:) forControlEvents:UIControlEventTouchUpInside];
         if ([_mode isEqualToString:@"03"]) {
@@ -146,7 +147,12 @@
             cell.shareholder.hidden = YES;
             cell.share.hidden = YES;
         }
+        DefineWeakSelf;
+        cell.RefreshCallBack = ^{
+            [weakSelf deletCompon:indexPath.row];
+        };
     }
+  
     return cell;
 }
 
@@ -174,6 +180,51 @@
     vc.coumodel = _dataArray[btn.tag];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+
+
+-(void)deletCompon:(NSInteger)index{
+    
+    
+//    NSLog(@"删除------");
+    [SVProgressHUD showWithStatus:@"加载中"];
+    MemberModel *model=[[FMDBMember shareInstance]getMemberData][0];
+     CouponModel *coupon = _dataArray[index];
+    NSDictionary *jsonDic;
+    jsonDic=@{ @"Command":@"Del",@"TableName":@"sales_coupon",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"ID":coupon.ID}]};
+    NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
+    NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
+    NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":@"",@"CipherText":CIPHERTEXT};
+    [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
+        
+        
+        NSString *str=[JsonTools getNSString:responseObject];
+        
+        if ([str isEqualToString:@"OK"])
+        {
+            DefineWeakSelf;
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+                
+                [weakSelf.dataArray removeObjectAtIndex:index];
+                [weakSelf.listTable reloadData];
+                
+            });
+            
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:str];
+            
+        }
+        
+        
+    } Faile:^(NSError *error) {
+        NSLog(@"失败%@",error);
+    }];
+  
+}
+
 
 
 

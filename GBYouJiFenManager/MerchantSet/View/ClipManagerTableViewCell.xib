@@ -69,6 +69,17 @@
                         </constraints>
                         <state key="normal" title="Button" image="80"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fU-NB-jvF">
+                        <rect key="frame" x="270" y="41" width="42" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="9gk-aP-9fN"/>
+                            <constraint firstAttribute="height" constant="22" id="pdC-oD-PqA"/>
+                        </constraints>
+                        <state key="normal" image="delete"/>
+                        <connections>
+                            <action selector="delet:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LeB-KQ-4QX"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Uo4-Cb-tS2" firstAttribute="leading" secondItem="uWh-ih-fYi" secondAttribute="trailing" constant="8" id="2i5-6j-HMX"/>
@@ -76,6 +87,7 @@
                     <constraint firstItem="cAQ-YH-lzA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Y1P-1Z-jer"/>
                     <constraint firstItem="cBM-il-NFH" firstAttribute="width" secondItem="cAQ-YH-lzA" secondAttribute="width" multiplier="1:1" id="ZxM-EU-giH"/>
                     <constraint firstItem="6de-IR-5WJ" firstAttribute="leading" secondItem="cBM-il-NFH" secondAttribute="trailing" constant="14" id="aZ8-Gi-cWa"/>
+                    <constraint firstItem="1fU-NB-jvF" firstAttribute="centerY" secondItem="Uo4-Cb-tS2" secondAttribute="centerY" id="cIE-qu-uPJ"/>
                     <constraint firstAttribute="bottom" secondItem="uWh-ih-fYi" secondAttribute="bottom" constant="11" id="cjf-7c-BGY"/>
                     <constraint firstItem="Jcv-vg-aLB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="d4a-1D-l57"/>
                     <constraint firstItem="jSS-QW-Mxs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dSe-7W-KqW"/>
@@ -86,12 +98,14 @@
                     <constraint firstAttribute="bottom" secondItem="Uo4-Cb-tS2" secondAttribute="bottom" constant="11" id="rBs-SZ-geg"/>
                     <constraint firstAttribute="trailing" secondItem="jSS-QW-Mxs" secondAttribute="trailing" constant="8" id="rek-HZ-n7T"/>
                     <constraint firstAttribute="bottom" secondItem="cAQ-YH-lzA" secondAttribute="bottom" constant="11" id="usf-Qh-sGB"/>
+                    <constraint firstAttribute="trailing" secondItem="1fU-NB-jvF" secondAttribute="trailing" constant="8" id="v0U-t5-War"/>
                     <constraint firstItem="6de-IR-5WJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="xty-J2-Mh7"/>
                     <constraint firstAttribute="trailing" secondItem="6de-IR-5WJ" secondAttribute="trailing" id="za1-kp-8Pb"/>
                     <constraint firstItem="cBM-il-NFH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="zqW-hl-hYL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="deletBtn" destination="1fU-NB-jvF" id="YUk-zE-J9O"/>
                 <outlet property="lable1" destination="6de-IR-5WJ" id="9OA-q5-dC6"/>
                 <outlet property="lable2" destination="uWh-ih-fYi" id="O0x-OW-y5R"/>
                 <outlet property="lable3" destination="Uo4-Cb-tS2" id="Ne9-SH-pEH"/>
@@ -111,7 +125,8 @@
     </objects>
     <resources>
         <image name="80" width="14" height="14"/>
-        <image name="clip_1" width="103" height="103"/>
+        <image name="clip_1" width="51" height="51"/>
         <image name="clip_5" width="75" height="75"/>
+        <image name="delete" width="18" height="18"/>
     </resources>
 </document>

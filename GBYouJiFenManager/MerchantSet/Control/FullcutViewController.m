@@ -77,7 +77,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-        CouponModel *model=_dataArray[indexPath.row];
+    CouponModel *model=_dataArray[indexPath.row];
     static NSString *FullcutTableViewCell_ID = @"FullcutTableViewCell_id";
     ClipManagerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FullcutTableViewCell_ID];
     if (!cell) {
@@ -101,7 +101,12 @@
         cell.statuImage.image=[UIImage imageNamed:@"clip_6"];
         
     }
-
+    DefineWeakSelf;
+    cell.deletCallBack = ^{
+        if (model.ID) {
+             [weakSelf deletFullMinse:model.ID];
+        }
+    };
     return cell;
     
 }
@@ -176,6 +181,47 @@
     
     [self.navigationController pushViewController:comm animated:YES];
 
+}
+
+
+//删除满减
+-(void)deletFullMinse:(NSString*)fullid{
+    
+    [SVProgressHUD showWithStatus:@"加载中"];
+    MemberModel *model=[[FMDBMember shareInstance]getMemberData][0];
+    NSDictionary *jsonDic;
+    jsonDic=@{ @"Command":@"Del",@"TableName":@"SALES_Fullcut",@"Data":@[@{@"COMPANY":model.COMPANY,@"SHOPID":model.SHOPID,@"ID":fullid}]};
+    NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
+    NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
+//    NSLog(@"%@",jsonStr);
+    DefineWeakSelf;
+    NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":@"",@"CipherText":CIPHERTEXT};
+    [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
+        
+        
+        NSString *str=[JsonTools getNSString:responseObject];
+        
+        if ([str isEqualToString:@"OK"])
+        {
+            
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+                [weakSelf getAllData];
+               
+            });
+            
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:str];
+            
+        }
+        
+        
+    } Faile:^(NSError *error) {
+        NSLog(@"失败%@",error);
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

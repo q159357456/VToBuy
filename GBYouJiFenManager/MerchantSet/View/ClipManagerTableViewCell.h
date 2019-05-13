@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface ClipManagerTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *lable1;
 @property (strong, nonatomic) IBOutlet UILabel *lable2;
@@ -16,5 +15,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *titleImage;
 @property (strong, nonatomic) IBOutlet UIImageView *statuImage;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
-
+@property (weak, nonatomic) IBOutlet UIButton *deletBtn;
+@property(nonatomic,copy)void(^deletCallBack)();
 @end

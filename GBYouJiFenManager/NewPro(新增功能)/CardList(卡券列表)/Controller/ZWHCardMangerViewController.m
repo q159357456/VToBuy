@@ -41,12 +41,12 @@
     [dict setValue:@(1) forKey:@"pageindex"];
     [dict setValue:@(10) forKey:@"pagesize"];
     [dict setValue:CIPHERTEXT forKey:@"CipherText"];
-    
+    NSLog(@"dict====>%@",dict);
     MJWeakSelf;
     [self showEmptyViewWithLoading];
-    [[NetDataTool shareInstance] zwhgetNetData:ROOTPATH url:@"PosService.asmx/ShopCouponList" With:dict and:^(id responseObject) {
+    [[NetDataTool shareInstance] zwhgetNetData:ROOTPATH url:@"/PosService.asmx/ShopCouponList" With:dict and:^(id responseObject) {
         NSDictionary *resdict=[JsonTools getData:responseObject];
-        NSLog(@"%@",resdict);
+        NSLog(@"resdict===>%@",resdict);
         [self hideEmptyView];
         if ([resdict[@"message"] isEqualToString:@"OK"]) {
             NSArray *ary = resdict[@"DataSet"][@"Table"];
@@ -81,7 +81,7 @@
     [dict setValue:CIPHERTEXT forKey:@"CipherText"];
     MJWeakSelf;
     [self showEmptyViewWithLoading];
-    [[NetDataTool shareInstance] zwhgetNetData:ROOTPATH url:@"PosService.asmx/ShopCouponList" With:dict and:^(id responseObject) {
+    [[NetDataTool shareInstance] zwhgetNetData:ROOTPATH url:@"/PosService.asmx/ShopCouponList" With:dict and:^(id responseObject) {
         NSDictionary *resdict=[JsonTools getData:responseObject];
         NSLog(@"%@",resdict);
         [self hideEmptyView];

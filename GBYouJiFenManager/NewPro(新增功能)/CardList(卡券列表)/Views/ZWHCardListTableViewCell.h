@@ -20,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)QMUILabel *time;
 @property(nonatomic,strong)QMUILabel *shareholder;
 @property(nonatomic,strong)QMUIButton *share;
-
 @property(nonatomic,strong)CouponModel *model;
-
+@property(nonatomic,strong)UIButton * deletBtn;
+@property(nonatomic,copy)void(^RefreshCallBack)();
 
 @end
 

@@ -1613,6 +1613,7 @@
 		68FC63FB1EC9AE4A0036F0C5 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		68FC63FC1EC9AE4A0036F0C5 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		68FC63FD1EC9AE4A0036F0C5 /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		7F1E003A2288FE6200A2A77D /* ConstantDefin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantDefin.h; sourceTree = "<group>"; };
 		7F7C05A42266F496001E4BDB /* BusinessAreaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessAreaViewController.h; sourceTree = "<group>"; };
 		7F7C05A52266F496001E4BDB /* BusinessAreaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessAreaViewController.m; sourceTree = "<group>"; };
 		7F7C05A82266F999001E4BDB /* DataProcess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataProcess.h; sourceTree = "<group>"; };
@@ -2471,6 +2472,7 @@
 				7F7C05A72266F8CE001E4BDB /* CommUseComponent */,
 				860CF2FB213D1F4900C68916 /* WSDaePickerView */,
 				684163EA1EB1807900E8EDFB /* PrefixHeader.pch */,
+				7F1E003A2288FE6200A2A77D /* ConstantDefin.h */,
 				684163EB1EB1807900E8EDFB /* sound.caf */,
 				684163DD1EB1807900E8EDFB /* ColorTool.h */,
 				684163DE1EB1807900E8EDFB /* ColorTool.m */,
@@ -4138,7 +4140,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GBYouJiFenManager/Pods-GBYouJiFenManager-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-GBYouJiFenManager/Pods-GBYouJiFenManager-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUIResources.bundle",
@@ -4153,7 +4155,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GBYouJiFenManager/Pods-GBYouJiFenManager-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GBYouJiFenManager/Pods-GBYouJiFenManager-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
