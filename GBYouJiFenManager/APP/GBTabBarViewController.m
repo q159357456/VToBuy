@@ -62,7 +62,8 @@
 
     NSString *path=[[NSBundle mainBundle]pathForResource:@"MianTab" ofType:@"plist"];
     NSDictionary *rootDic=[NSDictionary dictionaryWithContentsOfFile:path];
-    NSArray *keyArray=@[@"one",@"two",@"five",@"three",@"four"];
+//    NSArray *keyArray=@[@"one",@"two",@"five",@"three",@"four"];
+     NSArray *keyArray=@[@"one",@"two",@"five",@"four"];
     NSMutableArray *controllerArr=[[NSMutableArray alloc]init];
     for (int i=0; i<keyArray.count; i++) {
         NSDictionary *dic=rootDic[keyArray[i]];

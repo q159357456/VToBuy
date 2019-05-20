@@ -35,6 +35,7 @@
     [self creatFun];
     MemberModel *model=[[FMDBMember shareInstance]getMemberData][0];
     _disCountLable.text=[NSString stringWithFormat:@"积分折扣%.1f",model.ShopDiscount.floatValue*10];
+    _disCountLable.hidden = YES;
     self.bottomH.constant=screen_width;
     
     //接收通知

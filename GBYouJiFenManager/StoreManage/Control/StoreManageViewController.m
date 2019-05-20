@@ -37,8 +37,24 @@
 #import "ZWHOrderOnlineViewController.h"
 #import "ZWHSystemViewController.h"
 #import "ZWHGrantViewController.h"
+typedef enum DownBusinessName{
+    GatheringQRcode = 0,
+    CollectRecorde,
+    BusinessData,
+    EstimateManager,
+    MemberStatistics,
+    ShopManager,
+//    StockList,
+    Invitation,
+//    OnlineFetchBill,
+//    PaiPaiCash
+}DownBusinessName;
 
-
+typedef enum UpBusinessName{
+    SweepGathering=0,
+//    OnlineOrder,
+    ExchangeCode,
+}UpBusinessName;
 
 @interface StoreManageViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionview;
@@ -117,9 +133,11 @@
     _shopid=model.SHOPID;
     _userNo=model.Mobile;
 
-    _imageArray=@[@"StoreManage_3",@"StoreManage_2",@"StoreManage_13",@"StoreManage_4",@"StoreManage_14",@"StoreManage_7",@"StoreManage_8",@"StoreManage_12",@"StoreManage_10",@"WechatIMG52",@"StoreManage_4",@"32",@"grant"];
-    _titleArray=@[@"扫码收款",@"在线点单",@"兑换码验证",@"收款二维码",@"收单记录",@"营业数据",@"评价管理",@"会员统计",@"店铺设置",@"股份列表",@"邀请",@"在线取单",@"派派金"];
+// _imageArray=@[@"StoreManage_3",@"StoreManage_2",@"StoreManage_13",@"StoreManage_4",@"StoreManage_14",@"StoreManage_7",@"StoreManage_8",@"StoreManage_12",@"StoreManage_10",@"WechatIMG52",@"StoreManage_4",@"32",@"grant"];
+//    _titleArray=@[@"扫码收款",@"在线点单",@"兑换码验证",@"收款二维码",@"收单记录",@"营业数据",@"评价管理",@"会员统计",@"店铺设置",@"股份列表",@"邀请",@"在线取单",@"派派金"];
     //,@"邀请",@"会员充值"
+ _imageArray=@[@"StoreManage_3" ,@"StoreManage_13",@"StoreManage_4",@"StoreManage_14",@"StoreManage_7",@"StoreManage_8",@"StoreManage_12",@"StoreManage_10",@"StoreManage_4"];
+    _titleArray=@[@"扫码收款", @"兑换码验证",@"收款二维码",@"收单记录",@"营业数据",@"评价管理",@"会员统计",@"店铺设置",@"邀请"];
    
     [self.collectionview registerNib:[UINib nibWithNibName:@"POSCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"POSCollectionViewCell"];
     self.collectionview.backgroundColor = [UIColor whiteColor];
@@ -153,11 +171,11 @@
 {
     if (section==0)
     {
-        return 3;
+        return 2;
         
     }else
     {
-        return _titleArray.count-3;
+        return _titleArray.count-2;
     }
     
 }
@@ -179,10 +197,10 @@
     {
         cell.backgroundColor=[UIColor whiteColor];
         if (indexPath.row+3<_titleArray.count) {
-            cell.name.text=_titleArray[indexPath.row+3];
+            cell.name.text=_titleArray[indexPath.row+2];
             cell.name.font=[UIFont boldSystemFontOfSize:14];
             cell.name.textColor=[UIColor blackColor];
-            cell.img.image=[UIImage imageNamed:_imageArray[indexPath.row+3]];
+            cell.img.image=[UIImage imageNamed:_imageArray[indexPath.row+2]];
         }
   
     }
@@ -236,7 +254,7 @@
     if (indexPath.section==0)
     {
         switch (indexPath.row) {
-            case 0:
+            case SweepGathering:
             {
                 //扫码收款
                 SweepPayOneViewController*comm=[[SweepPayOneViewController alloc]init];
@@ -247,15 +265,15 @@
             
             }
                 break;
-            case 1:
-            {
-                //在线点餐
-                 [self isRegistMac];
-                
-                
-            }
-                break;
-            case 2:
+//            case OnlineOrder:
+//            {
+//                //在线点餐
+//                 [self isRegistMac];
+//
+//
+//            }
+//                break;
+            case ExchangeCode:
             {
              
                 
@@ -278,7 +296,7 @@
     {
         MemberModel *model = [[FMDBMember shareInstance]getMemberData][0];
             switch (indexPath.row) {
-                case 0:
+                case GatheringQRcode:
                 {
                     //店铺二维码
                     ShopCodeViewController *comm=[[ ShopCodeViewController alloc]init];
@@ -288,7 +306,7 @@
                     
                 }
                     break;
-                case 1:
+                case CollectRecorde:
                 {
                     if ([model.IsReportManager isEqualToString:@"True"]) {
                         //收单单记录
@@ -302,7 +320,7 @@
                     }
                 }
                     break;
-                case 2:
+                case BusinessData:
                 {
                     if ([model.IsReportManager isEqualToString:@"True"]) {
                         //营业数据
@@ -315,7 +333,7 @@
                     }
                 }
                     break;
-                case 3:
+                case EstimateManager:
                 {
                     if ([model.IsSystemSet isEqualToString:@"True"]) {
                         //评价管理
@@ -329,7 +347,7 @@
                     
                 }
                     break;
-                case 4:
+                case MemberStatistics:
                 {
                     if ([model.IsReportManager isEqualToString:@"True"]) {
                         //会员统计
@@ -343,7 +361,7 @@
                     }
                 }
                     break;
-                case 5:
+                case ShopManager:
                 {
                     if ([model.IsSystemSet isEqualToString:@"True"]) {
                         //店铺设置
@@ -357,20 +375,20 @@
                     }
                 }
                     break;
-                case 6:
-                {
-                    if ([model.IsSystemSet isEqualToString:@"True"]) {
-                        //股份
-                        ZWHSharesListViewController *vc = [[ZWHSharesListViewController alloc]init];
-                        [vc setHidesBottomBarWhenPushed:YES];
-                        [self.navigationController pushViewController:vc animated:YES];
-                    }else{
-                        [QMUITips showInfo:@"您的权限不能访问此功能"];
-                    }
-                    
-                }
-                    break;
-                case 7:
+//                case StockList:
+//                {
+//                    if ([model.IsSystemSet isEqualToString:@"True"]) {
+//                        //股份
+//                        ZWHSharesListViewController *vc = [[ZWHSharesListViewController alloc]init];
+//                        [vc setHidesBottomBarWhenPushed:YES];
+//                        [self.navigationController pushViewController:vc animated:YES];
+//                    }else{
+//                        [QMUITips showInfo:@"您的权限不能访问此功能"];
+//                    }
+//
+//                }
+//                    break;
+                case Invitation:
                 {
                     
                    //邀请
@@ -379,29 +397,29 @@
                     [self.navigationController pushViewController:comm animated:YES];
                 }
                     break;
-                case 8:
-                {
-                
-                    //在线取单
-                    ZWHOrderOnlineViewController *comm=[[ZWHOrderOnlineViewController alloc]init];
-                    [comm setHidesBottomBarWhenPushed:YES];
-                    [self.navigationController pushViewController:comm animated:YES];
-                }
-                    break;
-                case 9:
-                {
-                    MemberModel *model = [[FMDBMember shareInstance]getMemberData][0];
-                    if ([model.IsReportManager isEqualToString:@"True"]) {
-                        //派金设置
-                        ZWHGrantViewController *comm=[[ZWHGrantViewController alloc]init];
-                        [comm setHidesBottomBarWhenPushed:YES];
-                        [self.navigationController pushViewController:comm animated:YES];
-                    }else{
-                        [QMUITips showInfo:@"您的权限不能访问此功能"];
-                    }
-                    
-                }
-                    break;
+//                case OnlineFetchBill:
+//                {
+//
+//                    //在线取单
+//                    ZWHOrderOnlineViewController *comm=[[ZWHOrderOnlineViewController alloc]init];
+//                    [comm setHidesBottomBarWhenPushed:YES];
+//                    [self.navigationController pushViewController:comm animated:YES];
+//                }
+//                    break;
+//                case PaiPaiCash:
+//                {
+//                    MemberModel *model = [[FMDBMember shareInstance]getMemberData][0];
+//                    if ([model.IsReportManager isEqualToString:@"True"]) {
+//                        //派金设置
+//                        ZWHGrantViewController *comm=[[ZWHGrantViewController alloc]init];
+//                        [comm setHidesBottomBarWhenPushed:YES];
+//                        [self.navigationController pushViewController:comm animated:YES];
+//                    }else{
+//                        [QMUITips showInfo:@"您的权限不能访问此功能"];
+//                    }
+//
+//                }
+//                    break;
                 default:
                     break;
             }
@@ -797,10 +815,13 @@
     
     if (indexPath.section==0) {
       
-        if ((indexPath.row % 3) == 0) {
-            return CGSizeMake((ScreenWidth - (int)(ScreenWidth/3.0) - (int)(ScreenWidth/3.0)), (int)ScreenWidth/3.0);
+//        if ((indexPath.row % 3) == 0) {
+//            return CGSizeMake((ScreenWidth - (int)(ScreenWidth/3.0) - (int)(ScreenWidth/3.0)), (int)ScreenWidth/3.0);
+//        }
+        if (indexPath.item % 2 == 1) {
+            return CGSizeMake(ScreenWidth - (int)(ScreenWidth/2.0), (int)ScreenWidth/3.0);
         }
-        return CGSizeMake((int)(ScreenWidth/3.0), (int)ScreenWidth/3.0);
+        return CGSizeMake((int)(ScreenWidth/2.0), (int)ScreenWidth/3.0);
     }else
     
     return CGSizeMake(screen_width/4 , screen_width/4);

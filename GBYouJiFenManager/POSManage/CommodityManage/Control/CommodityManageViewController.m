@@ -32,7 +32,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets=NO;
     self.navigationController.navigationBar.translucent=NO;
-    _titleArray=@[@"商品管理",@"商品套餐",@"口味设置",@"供货商管理"];
+    _titleArray=@[@"商品管理",@"商品套餐",@"规格设置",@"供货商管理"];
     _imageArray=@[@"22",@"44",@"007",@"77"];
     _collctinView.backgroundColor=[UIColor whiteColor];
     [self.collctinView registerNib:[UINib nibWithNibName:@"POSCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"POSCollectionViewCell"];
