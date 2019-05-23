@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableview registerClass:[ZWHPersonOneTableViewCell class] forCellReuseIdentifier:@"ZWHPersonOneTableViewCell"];
-    _titileArray=@[@"手机验证",@"申请提现",@"提现账户",@"会员折扣",@"修改密码",@"客服电话",@"公司编号",@"店铺编号"];
+    _titileArray=@[@"手机验证",@"申请提现",@"提现账户",@"商户结算",@"修改密码",@"客服电话",@"公司编号",@"店铺编号"];
     self.tableview.contentInset=UIEdgeInsetsMake(150, 0, 100, 0);
     [self.tableview addSubview:[self getHeaderview]];
     [self.tableview addSubview:[self getFootview]];
@@ -176,9 +176,9 @@
         ZWHPersonOneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZWHPersonOneTableViewCell" forIndexPath:indexPath];
         [cell.yongBtn addTarget:self action:@selector(scoreClick) forControlEvents:UIControlEventTouchUpInside];
         [cell.xianBtn addTarget:self action:@selector(crashClick) forControlEvents:UIControlEventTouchUpInside];
-        cell.yongjin.text = model.Cash2;
-        cell.xianjin.text = model.Cash1;
-        cell.chongzhi.text = model.Cash3;
+        cell.yongjin.text = [NSString stringWithFormat:@"%.2f",[model.Cash2 floatValue]];
+        cell.xianjin.text = [NSString stringWithFormat:@"%.2f",[model.Cash1 floatValue]];
+        cell.chongzhi.text = [NSString stringWithFormat:@"%.2f",[model.Cash3 floatValue]];
         return cell;
         
         

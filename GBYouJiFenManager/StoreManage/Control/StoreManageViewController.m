@@ -196,7 +196,7 @@ typedef enum UpBusinessName{
     }else
     {
         cell.backgroundColor=[UIColor whiteColor];
-        if (indexPath.row+3<_titleArray.count) {
+        if (indexPath.row+2<_titleArray.count) {
             cell.name.text=_titleArray[indexPath.row+2];
             cell.name.font=[UIFont boldSystemFontOfSize:14];
             cell.name.textColor=[UIColor blackColor];

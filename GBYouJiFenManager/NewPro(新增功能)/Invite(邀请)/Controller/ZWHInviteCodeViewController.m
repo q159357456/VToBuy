@@ -33,7 +33,7 @@
     [self showEmptyViewWithLoading];
     [[NetDataTool shareInstance] zwhgetNetData:ROOTPATH url:@"SystemCommService.asmx/GetInviteQRcodeUrl" With:@{} and:^(id responseObject) {
         NSString *resdict=[JsonTools getNSString:responseObject];
-        NSLog(@"%@",resdict);
+        NSLog(@"resdict===>%@",resdict);
         weakSelf.qrCodeImg = resdict;
         [weakSelf getQCodeImg];
     } Faile:^(NSError *error) {
@@ -44,10 +44,13 @@
 -(void)getQCodeImg{
     MemberModel *model=[[FMDBMember shareInstance]getMemberData][0];
     NSString *url=[NSString stringWithFormat:@"/upload/%@",model.LogoUrl];
+    NSDictionary *params = @{@"url":[NSString stringWithFormat:@"%@?parentid=%@&parenttype=S",_qrCodeImg,model.SHOPID],@"sourceImg":url};
+    NSLog(@"params===>%@",params);
     MJWeakSelf;
-    [[NetDataTool shareInstance] zwhgetNetData:ROOTPATH url:@"PosService.asmx/GeneratePayURLImgQRCode" With:@{@"url":[NSString stringWithFormat:@"%@?parentid=%@&parenttype=S",_qrCodeImg,model.SHOPID],@"sourceImg":url} and:^(id responseObject) {
+    [[NetDataTool shareInstance] zwhgetNetData:ROOTPATH url:@"PosService.asmx/GeneratePayURLImgQRCode" With:params and:^(id responseObject) {
         [weakSelf hideEmptyView];
         weakSelf.imageCode = [UIImage imageWithData:responseObject];
+         NSLog(@"weakSelf.imageCode===>%@",weakSelf.imageCode);
         [weakSelf setUI];
     } Faile:^(NSError *error) {
         

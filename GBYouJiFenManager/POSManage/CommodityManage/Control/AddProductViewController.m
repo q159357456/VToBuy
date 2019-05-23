@@ -90,7 +90,7 @@
         [_pictureArray  insertObject:data atIndex:0];
         NSString *runModel=[[NSUserDefaults standardUserDefaults]objectForKey:@"POS_RunModel"];
         if ([runModel isEqualToString:@"01"]||[runModel isEqualToString:@"02"]) {
-             _titleArray=@[@"商品分类",@"商品编号",@"商品名称",@"规格",@"单位",@"积分",@"价格(元)",@"会员价"];
+             _titleArray=@[@"商品分类",@"商品编号",@"商品名称",@"商品规格",@"单位",@"积分",@"价格(元)",@"会员价"];
         }else
         {
            _titleArray=@[@"商品分类",@"商品编号",@"商品名称",@"规格",@"条码编号",@"单位",@"积分",@"价格(元)",@"会员价"];

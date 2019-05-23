@@ -141,7 +141,7 @@ make.height.mas_equalTo(1);\
 //#define ROOTPATH [[NSUserDefaults standardUserDefaults]objectForKey:@"requstIP"]
 
 
-#define ROOTPATH @"http://vweb.dgyjian.com/webservice"
+#define ROOTPATH @"http://vweb.dgyjian.com/webservice/"
 
 
 //图片服务器
