@@ -31,8 +31,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets=NO;
-    _titleArray=@[@"优惠券",@"满就减",@"超值商品",@"砍价购",@"储值卡"];
-    _imageArray=@[@"MerchantSet_2",@"MerchantSet_3",@"33",@"MerchantSet_4",@"016"];
+//    _titleArray=@[@"优惠券",@"满就减",@"超值商品",@"砍价购",@"储值卡"];
+//    _imageArray=@[@"MerchantSet_2",@"MerchantSet_3",@"33",@"MerchantSet_4",@"016"];
+    _titleArray=@[@"优惠券",@"满就减"];
+    _imageArray=@[@"MerchantSet_2",@"MerchantSet_3"];
         [self.collectionview registerNib:[UINib nibWithNibName:@"POSCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"POSCollectionViewCell"];
     _collectionview.backgroundColor=[UIColor whiteColor];
     // Do any additional setup after loading the view.

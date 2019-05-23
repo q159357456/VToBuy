@@ -3274,9 +3274,17 @@
 			path = CommUseComponent;
 			sourceTree = "<group>";
 		};
+		7FAB74BF2296A06A002CAEA3 /* phoneToPikerCell(选择多张图片) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "phoneToPikerCell(选择多张图片)";
+			sourceTree = "<group>";
+		};
 		860CF2ED213CE33100C68916 /* NewPro(新增功能) */ = {
 			isa = PBXGroup;
 			children = (
+				7FAB74BF2296A06A002CAEA3 /* phoneToPikerCell(选择多张图片) */,
 				7F7C05A32266F45B001E4BDB /* BusinessArea(商圈) */,
 				861E14F621D7139200B31BB5 /* CardList(卡券列表) */,
 				860E227721C77E780052643E /* Share(分享赚钱) */,

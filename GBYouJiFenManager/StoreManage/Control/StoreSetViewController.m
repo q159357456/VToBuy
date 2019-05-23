@@ -113,7 +113,7 @@
     self.circleName = self.model.circleName?self.model.circleName:@"";
     [self getbusinessDataWithStr:self.model.ShopCategory];
     //[self addKeyBoardNotify];
-    _titleArray=@[@"店铺名称",@"店铺图标",@"店铺电话",@"联系人",@"行业类型",@"折扣",@"地区",@"详细地址",@"商圈",@"坐标",@"参与抽奖"];
+    _titleArray=@[@"店铺名称",@"店铺图标",@"店铺电话",@"联系人",@"行业类型",@"商户结算",@"地区",@"详细地址",@"商圈",@"坐标",@"参与抽奖"];
     _tableview.hidden=YES;
     [self addRightButton];
     self.keyTableView = _tableview;
