@@ -565,6 +565,11 @@
 		7F7C05AA2266F999001E4BDB /* DataProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C05A92266F999001E4BDB /* DataProcess.m */; };
 		7F7C05AD226715A8001E4BDB /* CircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C05AC226715A8001E4BDB /* CircleModel.m */; };
 		7F7C05B02267170F001E4BDB /* BaseModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C05AE2267170E001E4BDB /* BaseModelObject.m */; };
+		7FB9F0F02297CD6100068042 /* GBImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9F0EF2297CD6100068042 /* GBImagePickerViewController.m */; };
+		7FB9F1012297D34000068042 /* myPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9F0F62297D33F00068042 /* myPhotoCell.m */; };
+		7FB9F1022297D34000068042 /* NavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9F0F72297D33F00068042 /* NavView.m */; };
+		7FB9F1052297D34000068042 /* WPFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9F0FF2297D33F00068042 /* WPFunctionView.m */; };
+		7FB9F1062297D34000068042 /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9F1002297D33F00068042 /* UIImage+fixOrientation.m */; };
 		860CF2E42138D3D000C68916 /* ZWHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860CF2E32138D3D000C68916 /* ZWHBaseViewController.m */; };
 		860CF2E7213912FE00C68916 /* UIViewController+NavBarHidden.m in Sources */ = {isa = PBXBuildFile; fileRef = 860CF2E5213912FD00C68916 /* UIViewController+NavBarHidden.m */; };
 		860CF2F4213CE34600C68916 /* ZWHSharesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860CF2F3213CE34600C68916 /* ZWHSharesListViewController.m */; };
@@ -1627,6 +1632,17 @@
 		7F7C05AC226715A8001E4BDB /* CircleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleModel.m; sourceTree = "<group>"; };
 		7F7C05AE2267170E001E4BDB /* BaseModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelObject.m; sourceTree = "<group>"; };
 		7F7C05AF2267170F001E4BDB /* BaseModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelObject.h; sourceTree = "<group>"; };
+		7FB9F0EE2297CD6100068042 /* GBImagePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBImagePickerViewController.h; sourceTree = "<group>"; };
+		7FB9F0EF2297CD6100068042 /* GBImagePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBImagePickerViewController.m; sourceTree = "<group>"; };
+		7FB9F0F42297CFCD00068042 /* BKPhotoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPhotoImage.h; sourceTree = "<group>"; };
+		7FB9F0F62297D33F00068042 /* myPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myPhotoCell.m; sourceTree = "<group>"; };
+		7FB9F0F72297D33F00068042 /* NavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavView.m; sourceTree = "<group>"; };
+		7FB9F0F82297D33F00068042 /* WPFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPFunctionView.h; sourceTree = "<group>"; };
+		7FB9F0FA2297D33F00068042 /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		7FB9F0FB2297D33F00068042 /* myPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myPhotoCell.h; sourceTree = "<group>"; };
+		7FB9F0FC2297D33F00068042 /* NavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavView.h; sourceTree = "<group>"; };
+		7FB9F0FF2297D33F00068042 /* WPFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPFunctionView.m; sourceTree = "<group>"; };
+		7FB9F1002297D33F00068042 /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
 		860CF2E22138D3CF00C68916 /* ZWHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWHBaseViewController.h; sourceTree = "<group>"; };
 		860CF2E32138D3D000C68916 /* ZWHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWHBaseViewController.m; sourceTree = "<group>"; };
 		860CF2E5213912FD00C68916 /* UIViewController+NavBarHidden.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavBarHidden.m"; sourceTree = "<group>"; };
@@ -3285,8 +3301,27 @@
 				7C61413E2296E389000397B0 /* NewUpPhotosTableViewCell.h */,
 				7C61413F2296E389000397B0 /* NewUpPhotosTableViewCell.m */,
 				7C6141402296E389000397B0 /* NewUpPhotosTableViewCell.xib */,
+				7FB9F0EE2297CD6100068042 /* GBImagePickerViewController.h */,
+				7FB9F0EF2297CD6100068042 /* GBImagePickerViewController.m */,
+				7FB9F0F42297CFCD00068042 /* BKPhotoImage.h */,
+				7FB9F0F52297D33F00068042 /* View */,
 			);
 			path = "phoneToPikerCell(选择多张图片)";
+			sourceTree = "<group>";
+		};
+		7FB9F0F52297D33F00068042 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7FB9F0FB2297D33F00068042 /* myPhotoCell.h */,
+				7FB9F0F62297D33F00068042 /* myPhotoCell.m */,
+				7FB9F0FC2297D33F00068042 /* NavView.h */,
+				7FB9F0F72297D33F00068042 /* NavView.m */,
+				7FB9F0FA2297D33F00068042 /* UIImage+fixOrientation.h */,
+				7FB9F1002297D33F00068042 /* UIImage+fixOrientation.m */,
+				7FB9F0F82297D33F00068042 /* WPFunctionView.h */,
+				7FB9F0FF2297D33F00068042 /* WPFunctionView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		860CF2ED213CE33100C68916 /* NewPro(新增功能) */ = {
@@ -4225,6 +4260,7 @@
 				6801C5A41F59070A00EB21A7 /* reportFormsManageViewController.m in Sources */,
 				6801C6CF1F59328A00EB21A7 /* PayDetailTableViewCell.m in Sources */,
 				68D90DCB1EC1B974000194FB /* FMDBhleper.m in Sources */,
+				7FB9F1022297D34000068042 /* NavView.m in Sources */,
 				68D35FE71EE25F1F0052FF33 /* TaskFrameTableViewCell.m in Sources */,
 				68ED47E71F6391970012C6CB /* StockShopViewController.m in Sources */,
 				6859AEFF1F5FFD3100CD2485 /* ProDetailThreeTbleViewCell.m in Sources */,
@@ -4408,6 +4444,7 @@
 				6801C5421F59070A00EB21A7 /* discountViewController.m in Sources */,
 				6801C5661F59070A00EB21A7 /* rechargeModel.m in Sources */,
 				68DBE23A1F4ACB09008B5940 /* StockPayTypeViewController.m in Sources */,
+				7FB9F0F02297CD6100068042 /* GBImagePickerViewController.m in Sources */,
 				6801C6AE1F59328A00EB21A7 /* ClassifyModel.m in Sources */,
 				68A98B981ECAD77100C51058 /* AddClipOneTableViewCell.m in Sources */,
 				6801C55E1F59070A00EB21A7 /* discountClassifyModel.m in Sources */,
@@ -4487,6 +4524,7 @@
 				6801C5B41F59070A00EB21A7 /* SeatSetViewController.m in Sources */,
 				68DEE76A1F29C10B0075EAEE /* UIImage+MSTool.m in Sources */,
 				6881F94E1F2ED20A00339207 /* FinanciaTwoTableViewCell.m in Sources */,
+				7FB9F1052297D34000068042 /* WPFunctionView.m in Sources */,
 				6801C53F1F59070A00EB21A7 /* ChooseTypeViewController.m in Sources */,
 				860E226621C74B8B0052643E /* UMSocialUIManager.m in Sources */,
 				68D4C9021F4D7C3F00077670 /* addAddressViewController.m in Sources */,
@@ -4507,7 +4545,9 @@
 				6801C5951F59070A00EB21A7 /* SettleAccountViewController.m in Sources */,
 				68CA38151ECD3CF2008065D8 /* ClipDetailTableViewCell.m in Sources */,
 				68E971461F4BFB93001B8A8A /* NSDataEx.m in Sources */,
+				7FB9F1012297D34000068042 /* myPhotoCell.m in Sources */,
 				8653A99621BE57C8000289FD /* ZWHCardManTableViewCell.m in Sources */,
+				7FB9F1062297D34000068042 /* UIImage+fixOrientation.m in Sources */,
 				68A98B9D1ECAD78C00C51058 /* AddClipTwoTableViewCell.m in Sources */,
 				684164081EB1807900E8EDFB /* FontSizeTools.m in Sources */,
 				68E971451F4BFB93001B8A8A /* MD5DataSigner.m in Sources */,

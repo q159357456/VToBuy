@@ -15,12 +15,15 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self.collectionView registerNib:[UINib nibWithNibName:@"UpPictureCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"UpPictureCollectionViewCell"];
-    QMUIAlbumViewController
     self.collectionView.delegate=self;
     self.collectionView.dataSource=self;
     // Initialization code
 }
-
+-(void)setDataArray:(NSMutableArray *)dataArray
+{
+    _dataArray = dataArray;
+    [self.collectionView reloadData];
+}
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
