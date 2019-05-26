@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger,XFImageType){
  图片
  */
 //   相册列表页面左边返回箭头图片
-#define WPhoto_Btn_Back      [UIImage imageNamed:@"mate_back"]
+#define WPhoto_Btn_Back      [UIImage imageNamed:@"back_icon"]
 //   图片选中状态图片
 #define WPhoto_Btn_Selected       [UIImage imageNamed:@"WPhoto_Btn_Selected"]
 //   图片未选中状态图片

@@ -7,21 +7,32 @@
 //
 
 #import "NewUpPhotosTableViewCell.h"
-#import "UpPictureCollectionViewCell.h"
+#import "NewUpPhotoCellCollectionViewCell.h"
+static NSInteger maxCount = 6;
 @interface NewUpPhotosTableViewCell()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @end
 @implementation NewUpPhotosTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"UpPictureCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"UpPictureCollectionViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"NewUpPhotoCellCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"NewUpPhotoCellCollectionViewCell"];
     self.collectionView.delegate=self;
     self.collectionView.dataSource=self;
+    self.collectionView.scrollEnabled = NO;
     // Initialization code
 }
+
 -(void)setDataArray:(NSMutableArray *)dataArray
 {
     _dataArray = dataArray;
+    if (_dataArray.count>maxCount) {
+        [_dataArray  removeObjectsInRange:NSMakeRange(maxCount, _dataArray.count-maxCount)];
+    }
+    
+    if (_dataArray.count < maxCount) {
+        
+        [_dataArray addObject:@"uppic_2"];
+    }
     [self.collectionView reloadData];
 }
 
@@ -37,60 +48,54 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UpPictureCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"UpPictureCollectionViewCell" forIndexPath:indexPath];
-    cell.classiLable.hidden = YES;
+   NewUpPhotoCellCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"NewUpPhotoCellCollectionViewCell" forIndexPath:indexPath];
     
-//    if (!_titleArray)
-//    {
-//        cell.classiLable.hidden=YES;
-//    }else
-//    {
-//        cell.classiLable.text=_titleArray[indexPath.row];
-//    }
-//    if ([_dataArray[indexPath.row] isKindOfClass:[NSString class]])
-//    {
-//
-//        cell.picImage.image=[UIImage imageNamed:_dataArray[indexPath.row]];
-//        cell.closeButton.hidden=YES;
-//
-//
-//    }else
-//    {
-//        cell.classiLable.text=_titleArray[indexPath.row];
-//        cell.picImage.image=[UIImage imageWithData:_dataArray[indexPath.row]];
-//        cell.closeButton.hidden=NO;
-//        __weak typeof(self)weakSelf=self;
-//        cell.closeBlock=^{
-//            weakSelf.closeBlock(indexPath.item);
-//        };
-//
-//    }
-    
-    return cell;
+    if ([_dataArray[indexPath.row] isKindOfClass:[NSString class]])
+    {
+        
+        cell.subImg.image=[UIImage imageNamed:_dataArray[indexPath.row]];
+        cell.deletBtn.hidden=YES;
+        
+        
+    }else
+    {
+        cell.subImg.image=_dataArray[indexPath.row];
+        cell.deletBtn.hidden=NO;
+        [cell.deletBtn addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
+        cell.deletBtn.tag = indexPath.item + 1;
+
+    }
+
+   return cell;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if ([_dataArray[indexPath.row] isKindOfClass:[NSString class]]) {
-//        
-//        self.addBlock(indexPath.row);
-//    }else
-//    {
-//        self.extendBlock(indexPath.row);
-//    }
-//    
+    if ([_dataArray[indexPath.row] isKindOfClass:[NSString class]]) {
+        if (self.addBlock) {
+            self.addBlock(indexPath.row);
+        }
+        
+    }else
+    {
+        if (self.extendBlock) {
+            self.extendBlock(indexPath.row);
+        }
+        
+    }
+//
     
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return CGSizeMake(98,130);
+ 
+    return CGSizeMake((ScreenWidth-40)/3,(ScreenWidth-40)/3);
     
 }
 //设置section的上左下右边距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     //上  左   下  右
     
-    return UIEdgeInsetsMake(8, 10, 8, 10);
+    return UIEdgeInsetsMake(10, 10, 10, 10);
     
 }
 // 两个cell之间的最小间距，是由API自动计算的，只有当间距小于该值时，cell会进行换行
@@ -112,5 +117,24 @@
 
     // Configure the view for the selected state
 }
-
+#pragma mark - action
+-(void)delete:(UIButton*)sender{
+    NSLog(@"删除");
+    if (self.closeBlock) {
+        self.closeBlock(sender.tag-1);
+    }
+}
+#pragma mark - public
++(CGFloat)SelfViewHeightWithSubCount:(NSInteger)count
+{
+    NSInteger temp = count;
+    if (count>maxCount) {
+        temp = maxCount;
+    }
+    if (count<maxCount) {
+        temp = count + 1;
+    }
+    NSInteger row = ceilf(temp/3.00);
+    return 20 + row*(ScreenWidth-40)/3 + (row-1);
+}
 @end

@@ -12,7 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NewUpPhotosTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,copy)NSMutableArray *dataArray;
+@property(nonatomic,copy)void(^addBlock)(NSInteger index);
+@property(nonatomic,copy)void(^closeBlock)(NSInteger index);
+@property(nonatomic,copy)void(^extendBlock)(NSInteger index);
++(CGFloat)SelfViewHeightWithSubCount:(NSInteger)count;
 @end
 
 NS_ASSUME_NONNULL_END

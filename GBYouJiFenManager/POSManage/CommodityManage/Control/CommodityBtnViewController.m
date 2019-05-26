@@ -116,7 +116,7 @@
     [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/GetCommSelectDataInfo3" With:dic and:^(id responseObject) {
         [SVProgressHUD dismiss];
         NSDictionary *dic1=[JsonTools getData:responseObject];
-
+        NSLog(@"dic1===>%@",dic1);
         
         _dataArray=[ProductModel getDataWithDic:dic1];
        

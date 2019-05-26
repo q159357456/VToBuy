@@ -65,7 +65,7 @@ object:nil];
 //#define MainColor [ColorTool colorWithHexString:@"#feb500"]
 //#define MainColor [ColorTool colorWithHexString:@"#FC246D"]
 #define MainColor [ColorTool colorWithHexString:@"13af68"]
-#define COLOR_STRING(colorString) [ColorTool colorWithHexString:@"#d7d7d7"]
+#define COLOR_STRING(colorString) [ColorTool colorWithHexString:colorString]
 
 // ***** 主色 *****//
 #define MAINCOLOR [ColorTool colorWithHexString:@"#FF9800"]

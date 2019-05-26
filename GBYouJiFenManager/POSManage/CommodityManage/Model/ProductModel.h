@@ -22,8 +22,13 @@
 @property(nonatomic,copy)NSString *  RetailPrice;
 @property(nonatomic,copy)NSString *  ClassifyName;
 @property(nonatomic,copy)NSString *  PicAddress1;
+@property(nonatomic,copy)NSString *  PicAddress2;
+@property(nonatomic,copy)NSString *  PicAddress3;
+@property(nonatomic,copy)NSString *  PicAddress4;
+@property(nonatomic,copy)NSString *  PicAddress5;
+@property(nonatomic,copy)NSString *  PicAddress6;
 @property(nonatomic,copy)NSString * SupplierNo;
-@property(nonatomic,copy)NSString *PicAddress2;
+//@property(nonatomic,copy)NSString *PicAddress2;
 @property(nonatomic,copy)NSString *  Unit;
 @property(nonatomic,copy)NSString *  UPC_BarCode;
 @property(nonatomic,copy)NSString *  IsUpDown;

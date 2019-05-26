@@ -10,6 +10,7 @@
 #import "AddDetailTableViewCell.h"
 #import "AddDetailTwoTableViewCell.h"
 #import "UpPictureTableViewCell.h"
+#import "NewUpPhotosTableViewCell.h"
 #import "AddClassifyViewController.h"
 #import "ClassifyModel.h"
 #import "BigPictureViewController.h"
@@ -17,6 +18,7 @@
 #import "MemberModel.h"
 #import "CoverView.h"
 #import "GuiGeView.h"
+#import "GBImagePickerViewController.h"
 @interface AddProductViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property(nonatomic,strong)UITextField *specialfield;
@@ -46,7 +48,12 @@
 @property(nonatomic,copy)NSString *ProductSpecName;
 @property(nonatomic,copy)NSString *DiscountMode;
 @property(nonatomic,copy)NSString *Bonus;
-
+@property(nonatomic,copy)NSString *bPhoto1;
+@property(nonatomic,copy)NSString *bPhoto2;
+@property(nonatomic,copy)NSString *bPhoto3;
+@property(nonatomic,copy)NSString *bPhoto4;
+@property(nonatomic,copy)NSString *bPhoto5;
+@property(nonatomic,copy)NSString *bPhoto6;
 
 @end
 
@@ -82,12 +89,10 @@
         self.ProductSpecName=self.productModel.ProductDesc;
         self.DiscountMode=self.productModel.DiscountMode;
         self.Bonus = self.productModel.Bonus;
+        [self setNewPicData];
         //获取规格的名字
         
-        NSString *str=[NSString stringWithFormat:@"%@%@",PICTUREPATH,self.productModel.PicAddress1];
-        NSString *urlStr=[str URLEncodedString];
-        NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:urlStr]];
-        [_pictureArray  insertObject:data atIndex:0];
+     
         NSString *runModel=[[NSUserDefaults standardUserDefaults]objectForKey:@"POS_RunModel"];
         if ([runModel isEqualToString:@"01"]||[runModel isEqualToString:@"02"]) {
              _titleArray=@[@"商品分类",@"商品编号",@"商品名称",@"商品规格",@"单位",@"积分",@"价格(元)",@"会员价"];
@@ -121,7 +126,7 @@
 
         
         
-        [_pictureArray addObject:@"uppic_2"];
+//        [_pictureArray addObject:@"uppic_2"];
         
     }
     // Do any additional setup after loading the view from its nib.
@@ -172,7 +177,7 @@
 }
 -(void)buttonClick
 {
-    if ([_pictureArray[0]isKindOfClass:[NSData class]])
+    if (self.pictureArray.count)
     {
    
         if (self.productName.length==0||self.danwei.length==0||self.price.length==0||self.productClassify.length==0)
@@ -408,9 +413,11 @@
         }else
         {
             __weak typeof(self)weakSelf=self;
-            UpPictureTableViewCell *cell=[[NSBundle mainBundle]loadNibNamed:@"UpPictureTableViewCell" owner:nil options:nil][0];
+            NewUpPhotosTableViewCell *cell=[[NSBundle mainBundle]loadNibNamed:@"NewUpPhotosTableViewCell" owner:nil options:nil][0];
             //        cell.dataArray=self.pictureArray;
-            [cell setDataArrayWithStr:2 :self.pictureArray];
+//            [cell setDataArrayWithStr:2 :self.pictureArray];
+       
+            cell.dataArray = [self.pictureArray mutableCopy];
             cell.addBlock=^(NSInteger index){
                 
                 weakSelf.selectedIndex=index;
@@ -421,10 +428,10 @@
                 NSLog(@"删除");
                 [weakSelf deletPictureWithIndex:index];
             };
-            cell.extendBlock=^(NSInteger index){
-                NSLog(@"大图");
-                [weakSelf bigPictureWithIndex:index];
-            };
+//            cell.extendBlock=^(NSInteger index){
+//                NSLog(@"大图");
+//                [weakSelf bigPictureWithIndex:index];
+//            };
             return cell;
         }
 
@@ -469,7 +476,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row==_titleArray.count+6)
     {
-        return 150;
+        return [NewUpPhotosTableViewCell SelfViewHeightWithSubCount:self.pictureArray.count];
     }else
     return 50;
 }
@@ -1055,7 +1062,7 @@
 }
 -(void)deletPictureWithIndex:(NSInteger)index
 {
-    [_pictureArray replaceObjectAtIndex:index withObject:@"uppic_2"];
+    [_pictureArray removeObjectAtIndex:index];
     [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_titleArray.count+6 inSection:0] ]withRowAnimation:UITableViewRowAnimationNone];
 }
 -(void)addPicture
@@ -1072,11 +1079,20 @@
     }];
     UIAlertAction *action1=[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //调用相册
-        UIImagePickerController *picker=[[UIImagePickerController alloc]init];
-        picker.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
-        picker.delegate=self;
-        picker.allowsEditing=YES;
-        [self presentViewController:picker animated:YES completion:nil];
+//        UIImagePickerController *picker=[[UIImagePickerController alloc]init];
+//        picker.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+//        picker.delegate=self;
+//        picker.allowsEditing=YES;
+//        [self presentViewController:picker animated:YES completion:nil];
+        GBImagePickerViewController *vc = [[GBImagePickerViewController alloc]init];
+        NSInteger count = 6 - self.pictureArray.count;
+        vc.selectPhotoOfMax = count;
+        DefineWeakSelf;
+        vc.selectPhotosBack = ^(NSMutableArray * _Nonnull photosArr) {
+            [weakSelf.pictureArray addObjectsFromArray:photosArr];
+            [weakSelf.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:weakSelf.titleArray.count+6 inSection:0] ]withRowAnimation:UITableViewRowAnimationNone];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
       
     }];
     UIAlertAction *action2=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -1096,10 +1112,8 @@
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     
     
-    NSData *data=UIImageJPEGRepresentation(image, 1.0f);
-//    [_pictureArray insertObject:data atIndex:_pictureArray.count-1];
-
-     [_pictureArray replaceObjectAtIndex:self.selectedIndex withObject:data];
+//    NSData *data=UIImageJPEGRepresentation(image, 1.0f);
+    [_pictureArray addObject:image];
     [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_titleArray.count+6 inSection:0] ]withRowAnimation:UITableViewRowAnimationNone];
 }
 -(NSString *)ProductSpecName
@@ -1147,10 +1161,9 @@
 
         NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
         NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
-        NSLog(@"add_1_jsonStr===>%@",jsonStr);
-        NSString *encodedImageStr = [_pictureArray[0] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-        NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":encodedImageStr,@"CipherText":CIPHERTEXT};
-        [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
+//        NSLog(@"add_1_jsonStr===>%@",jsonStr);
+        NSDictionary *dic=[self getNewJsonData:jsonStr];
+        [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_Goods" With:dic and:^(id responseObject) {
             
             
             NSString *str=[JsonTools getNSString:responseObject];
@@ -1208,10 +1221,9 @@
             
             NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
             NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
-             NSLog(@"add_2_jsonStr===>%@",jsonStr);
-            NSString *encodedImageStr = [_pictureArray[0] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-            NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":encodedImageStr,@"CipherText":CIPHERTEXT};
-            [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
+//             NSLog(@"add_2_jsonStr===>%@",jsonStr);
+            NSDictionary *dic=[self getNewJsonData:jsonStr];
+            [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_Goods" With:dic and:^(id responseObject) {
                 
                 
                 NSString *str=[JsonTools getNSString:responseObject];
@@ -1279,10 +1291,9 @@
 
         NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
         NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
-        NSLog(@"edit_1_jsonStr===>%@",jsonStr);
-        NSString *encodedImageStr = [_pictureArray[0] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-        NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":encodedImageStr,@"CipherText":CIPHERTEXT};
-        [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
+//        NSLog(@"edit_1_jsonStr===>%@",jsonStr);
+        NSDictionary *dic=[self getNewJsonData:jsonStr];
+        [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_Goods" With:dic and:^(id responseObject) {
             
             
             NSString *str=[JsonTools getNSString:responseObject];
@@ -1339,10 +1350,9 @@
             
             NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
             NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
-            NSLog(@"edit_2_jsonStr===>%@",jsonStr);
-            NSString *encodedImageStr = [_pictureArray[0] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-            NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto":encodedImageStr,@"CipherText":CIPHERTEXT};
-            [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_New" With:dic and:^(id responseObject) {
+//            NSLog(@"edit_2_jsonStr===>%@",jsonStr);
+            NSDictionary *dic=[self getNewJsonData:jsonStr];
+            [[NetDataTool shareInstance]getNetData:ROOTPATH url:@"/SystemCommService.asmx/DataProcess_Goods" With:dic and:^(id responseObject) {
                 
                 
                 NSString *str=[JsonTools getNSString:responseObject];
@@ -1395,6 +1405,140 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - newFunc
+-(NSDictionary*)getNewJsonData:(NSString*)jsonStr{
+    self.bPhoto1 = @"";
+    self.bPhoto2 = @"";
+    self.bPhoto3 = @"";
+    self.bPhoto4 = @"";
+    self.bPhoto5 = @"";
+    self.bPhoto6 = @"";
+    NSInteger temp = 0;
+//    NSLog(@"getNewJsonData==>%@",jsonStr);
+//    NSLog(@"getNewJsonData==>%ld",self.pictureArray.count);
+    for (UIImage * img in self.pictureArray) {
+        NSData * imageData = UIImagePNGRepresentation(img);
+        NSString *encodedImageStr = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        switch (temp) {
+            case 0:
+                self.bPhoto1 = encodedImageStr;
+                break;
+            case 1:
+                self.bPhoto2 = encodedImageStr;
+                break;
+            case 2:
+                self.bPhoto3 = encodedImageStr;
+                break;
+            case 3:
+                self.bPhoto4 = encodedImageStr;
+                break;
+            case 4:
+                self.bPhoto5 = encodedImageStr;
+                break;
+            case 5:
+                self.bPhoto6 = encodedImageStr;
+                break;
+            default:
+                break;
+        }
+        temp ++ ;
+        
+    }
+    NSDictionary *dic=@{@"strJson":jsonStr,@"bPhoto1":self.bPhoto1,@"bPhoto2":self.bPhoto2,@"bPhoto3":self.bPhoto3,@"bPhoto4":self.bPhoto4,@"bPhoto5":self.bPhoto5,@"bPhoto6":self.bPhoto6,@"CipherText":CIPHERTEXT};
+//    NSLog(@"dic===>%@",dic);
+    return dic;
+    
+}
 
+-(void)setNewPicData{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        if (self.productModel.PicAddress1) {
+            
+            NSString * PicAddress1 =[NSString stringWithFormat:@"%@%@",PICTUREPATH,self.productModel.PicAddress1];
+            UIImage * image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[PicAddress1 URLEncodedString]]]];
+            if (image) {
+                NSLog(@"1");
+                [self.pictureArray addObject:image];
+            }
+            
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.titleArray.count+6 inSection:0] ]withRowAnimation:UITableViewRowAnimationNone];
+        });
+    });
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        if (self.productModel.PicAddress2.length) {
+            
+            NSString * PicAddress2 =[NSString stringWithFormat:@"%@%@",PICTUREPATH,self.productModel.PicAddress2];
+            UIImage * image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[PicAddress2 URLEncodedString]]]];
+            if (image) {
+                NSLog(@"2");
+                [self.pictureArray addObject:image];
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.titleArray.count+6 inSection:0] ]withRowAnimation:UITableViewRowAnimationNone];
+        });
+    });
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        if (self.productModel.PicAddress3.length) {
+            
+            NSString * PicAddress3 =[NSString stringWithFormat:@"%@%@",PICTUREPATH,self.productModel.PicAddress3];
+            UIImage * image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[PicAddress3 URLEncodedString]]]];
+            if (image) {
+                NSLog(@"3");
+                [self.pictureArray addObject:image];
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.titleArray.count+6 inSection:0] ]withRowAnimation:UITableViewRowAnimationNone];
+        });
+    });
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        if (self.productModel.PicAddress4.length) {
+            
+            NSString * PicAddress4 =[NSString stringWithFormat:@"%@%@",PICTUREPATH,self.productModel.PicAddress4];
+            UIImage * image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[PicAddress4 URLEncodedString]]]];
+            if (image) {
+                NSLog(@"4");
+                [self.pictureArray addObject:image];
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.titleArray.count+6 inSection:0] ]withRowAnimation:UITableViewRowAnimationNone];
+        });
+    });
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        if (self.productModel.PicAddress5.length) {
+            
+            NSString * PicAddress5 =[NSString stringWithFormat:@"%@%@",PICTUREPATH,self.productModel.PicAddress5];
+            UIImage * image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[PicAddress5 URLEncodedString]]]];
+            if (image) {
+                NSLog(@"5");
+                [self.pictureArray addObject:image];
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.titleArray.count+6 inSection:0] ]withRowAnimation:UITableViewRowAnimationNone];
+        });
+    });
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        if (self.productModel.PicAddress6.length) {
+            
+            NSString * PicAddress6 =[NSString stringWithFormat:@"%@%@",PICTUREPATH,self.productModel.PicAddress6];
+            UIImage * image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[PicAddress6 URLEncodedString]]]];
+            if (image) {
+                NSLog(@"6");
+                [self.pictureArray addObject:image];
+            }
+        };
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.titleArray.count+6 inSection:0] ]withRowAnimation:UITableViewRowAnimationNone];
+        });
+    });
+    
+   
+}
 
 @end

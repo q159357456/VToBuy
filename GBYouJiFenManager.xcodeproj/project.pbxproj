@@ -559,8 +559,11 @@
 		68FC63F51EC9A5CB0036F0C5 /* ChangePassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68FC63F31EC9A5CB0036F0C5 /* ChangePassViewController.xib */; };
 		68FC63FE1EC9AE4A0036F0C5 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FC63FC1EC9AE4A0036F0C5 /* AccountViewController.m */; };
 		68FC63FF1EC9AE4A0036F0C5 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68FC63FD1EC9AE4A0036F0C5 /* AccountViewController.xib */; };
+		7C4BD7E122992308002BB1A2 /* UIResponder+Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BD7E022992308002BB1A2 /* UIResponder+Event.m */; };
 		7C6141412296E389000397B0 /* NewUpPhotosTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C61413F2296E389000397B0 /* NewUpPhotosTableViewCell.m */; };
 		7C6141422296E389000397B0 /* NewUpPhotosTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6141402296E389000397B0 /* NewUpPhotosTableViewCell.xib */; };
+		7C61414622991B36000397B0 /* NewUpPhotoCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C61414422991B36000397B0 /* NewUpPhotoCellCollectionViewCell.m */; };
+		7C61414722991B36000397B0 /* NewUpPhotoCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C61414522991B36000397B0 /* NewUpPhotoCellCollectionViewCell.xib */; };
 		7F7C05A62266F496001E4BDB /* BusinessAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C05A52266F496001E4BDB /* BusinessAreaViewController.m */; };
 		7F7C05AA2266F999001E4BDB /* DataProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C05A92266F999001E4BDB /* DataProcess.m */; };
 		7F7C05AD226715A8001E4BDB /* CircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C05AC226715A8001E4BDB /* CircleModel.m */; };
@@ -1620,9 +1623,14 @@
 		68FC63FB1EC9AE4A0036F0C5 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		68FC63FC1EC9AE4A0036F0C5 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		68FC63FD1EC9AE4A0036F0C5 /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		7C4BD7DF22992308002BB1A2 /* UIResponder+Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Event.h"; sourceTree = "<group>"; };
+		7C4BD7E022992308002BB1A2 /* UIResponder+Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Event.m"; sourceTree = "<group>"; };
 		7C61413E2296E389000397B0 /* NewUpPhotosTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewUpPhotosTableViewCell.h; sourceTree = "<group>"; };
 		7C61413F2296E389000397B0 /* NewUpPhotosTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewUpPhotosTableViewCell.m; sourceTree = "<group>"; };
 		7C6141402296E389000397B0 /* NewUpPhotosTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewUpPhotosTableViewCell.xib; sourceTree = "<group>"; };
+		7C61414322991B36000397B0 /* NewUpPhotoCellCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewUpPhotoCellCollectionViewCell.h; sourceTree = "<group>"; };
+		7C61414422991B36000397B0 /* NewUpPhotoCellCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewUpPhotoCellCollectionViewCell.m; sourceTree = "<group>"; };
+		7C61414522991B36000397B0 /* NewUpPhotoCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewUpPhotoCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F1E003A2288FE6200A2A77D /* ConstantDefin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantDefin.h; sourceTree = "<group>"; };
 		7F7C05A42266F496001E4BDB /* BusinessAreaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessAreaViewController.h; sourceTree = "<group>"; };
 		7F7C05A52266F496001E4BDB /* BusinessAreaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessAreaViewController.m; sourceTree = "<group>"; };
@@ -2530,6 +2538,8 @@
 				684D10171FB586AD00E9E7C2 /* NSArray+ArrayBounds.m */,
 				860CF2E6213912FE00C68916 /* UIViewController+NavBarHidden.h */,
 				860CF2E5213912FD00C68916 /* UIViewController+NavBarHidden.m */,
+				7C4BD7DF22992308002BB1A2 /* UIResponder+Event.h */,
+				7C4BD7E022992308002BB1A2 /* UIResponder+Event.m */,
 				6838618A1F594D4B006BD378 /* Views */,
 				685088831F46F1CA00402EE0 /* MainViewController */,
 				685088751F46E89300402EE0 /* SegmentView */,
@@ -3320,6 +3330,9 @@
 				7FB9F1002297D33F00068042 /* UIImage+fixOrientation.m */,
 				7FB9F0F82297D33F00068042 /* WPFunctionView.h */,
 				7FB9F0FF2297D33F00068042 /* WPFunctionView.m */,
+				7C61414322991B36000397B0 /* NewUpPhotoCellCollectionViewCell.h */,
+				7C61414422991B36000397B0 /* NewUpPhotoCellCollectionViewCell.m */,
+				7C61414522991B36000397B0 /* NewUpPhotoCellCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3975,6 +3988,7 @@
 				6801C5961F59070A00EB21A7 /* SettleAccountViewController.xib in Resources */,
 				68E83B751ECBEF6700EDC07E /* AddFullViewController.xib in Resources */,
 				68E06AE91EC46A1C00D86D9B /* PersonOneTableViewCell.xib in Resources */,
+				7C61414722991B36000397B0 /* NewUpPhotoCellCollectionViewCell.xib in Resources */,
 				685088651F46C9D600402EE0 /* SecondTableViewCell.xib in Resources */,
 				6801C6811F59328A00EB21A7 /* AddComboViewController.xib in Resources */,
 				681C54AA1ED56E4E0013BD57 /* StorePreThreeCollectionViewCell.xib in Resources */,
@@ -4251,6 +4265,7 @@
 				68A780B11EF10826009299E0 /* MSModel.m in Sources */,
 				6841640B1EB1807900E8EDFB /* NSString+addtion.m in Sources */,
 				6801C44F1F59045F00EB21A7 /* MemberModel.m in Sources */,
+				7C61414622991B36000397B0 /* NewUpPhotoCellCollectionViewCell.m in Sources */,
 				6832341C1F7E2B7C000CFCFC /* userAccountModel.m in Sources */,
 				68600BEF1EE6AE5F0090B133 /* AnswerViewController.m in Sources */,
 				6850887C1F46E94000402EE0 /* BillStateViewController.m in Sources */,
@@ -4324,6 +4339,7 @@
 				68A780BD1EF12CDE009299E0 /* PayDetailOneTableViewCell.m in Sources */,
 				68600BE31EE68D8E0090B133 /* StarEvaluator.m in Sources */,
 				68A780C21EF12CF8009299E0 /* PayDetailTwoTableViewCell.m in Sources */,
+				7C4BD7E122992308002BB1A2 /* UIResponder+Event.m in Sources */,
 				6801C57E1F59070A00EB21A7 /* FloorInfoViewController.m in Sources */,
 				68BDA1911ED2BE73005749B9 /* ScanningQRCodeView.m in Sources */,
 				6841640F1EB1807900E8EDFB /* CCFlipAnimation.m in Sources */,

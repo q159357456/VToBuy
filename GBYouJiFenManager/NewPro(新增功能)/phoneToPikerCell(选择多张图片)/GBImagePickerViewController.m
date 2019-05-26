@@ -243,7 +243,7 @@
     myPhotoCell *cell = (myPhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
     if (_chooseArray.count>=_selectPhotoOfMax && cell.chooseStatus == NO) {
-        UIAlertView *alertVC = [[UIAlertView alloc] initWithTitle:@"最多选择九张图片" message:@"" delegate:self cancelButtonTitle:nil otherButtonTitles:@"好", nil];
+        UIAlertView *alertVC = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"最多选择%ld张图片",self.selectPhotoOfMax] message:@"" delegate:self cancelButtonTitle:nil otherButtonTitles:@"好", nil];
         [alertVC show];
         return;
     }
@@ -351,10 +351,14 @@
 #pragma mark 选择完成
 -(void)quitDoneBack{
     if (self.chooseArray.count) {
-        
+        NSLog(@"_chooseArray===>%@",_chooseArray);
 //        BKBookneededUploadCtr *ctr = [[BKBookneededUploadCtr alloc]init];
 //        [ctr addDataWithArray:self.chooseArray];
 //        [self.navigationController pushViewController:ctr animated:YES];
+        if (self.selectPhotosBack) {
+            self.selectPhotosBack(_chooseArray);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
         [self cancelAllChoose];
     }
 }
