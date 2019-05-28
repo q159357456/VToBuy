@@ -564,6 +564,7 @@
 		7C6141422296E389000397B0 /* NewUpPhotosTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6141402296E389000397B0 /* NewUpPhotosTableViewCell.xib */; };
 		7C61414622991B36000397B0 /* NewUpPhotoCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C61414422991B36000397B0 /* NewUpPhotoCellCollectionViewCell.m */; };
 		7C61414722991B36000397B0 /* NewUpPhotoCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C61414522991B36000397B0 /* NewUpPhotoCellCollectionViewCell.xib */; };
+		7F6C5252229BC1BC003A3BCF /* ChooseTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6C5251229BC1BC003A3BCF /* ChooseTipsView.m */; };
 		7F7C05A62266F496001E4BDB /* BusinessAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C05A52266F496001E4BDB /* BusinessAreaViewController.m */; };
 		7F7C05AA2266F999001E4BDB /* DataProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C05A92266F999001E4BDB /* DataProcess.m */; };
 		7F7C05AD226715A8001E4BDB /* CircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C05AC226715A8001E4BDB /* CircleModel.m */; };
@@ -1632,6 +1633,8 @@
 		7C61414422991B36000397B0 /* NewUpPhotoCellCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewUpPhotoCellCollectionViewCell.m; sourceTree = "<group>"; };
 		7C61414522991B36000397B0 /* NewUpPhotoCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewUpPhotoCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F1E003A2288FE6200A2A77D /* ConstantDefin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantDefin.h; sourceTree = "<group>"; };
+		7F6C5250229BC1BC003A3BCF /* ChooseTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseTipsView.h; sourceTree = "<group>"; };
+		7F6C5251229BC1BC003A3BCF /* ChooseTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseTipsView.m; sourceTree = "<group>"; };
 		7F7C05A42266F496001E4BDB /* BusinessAreaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessAreaViewController.h; sourceTree = "<group>"; };
 		7F7C05A52266F496001E4BDB /* BusinessAreaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessAreaViewController.m; sourceTree = "<group>"; };
 		7F7C05A82266F999001E4BDB /* DataProcess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataProcess.h; sourceTree = "<group>"; };
@@ -3283,6 +3286,15 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		7F6C524F229BC1A1003A3BCF /* chooseTips(选择标签) */ = {
+			isa = PBXGroup;
+			children = (
+				7F6C5250229BC1BC003A3BCF /* ChooseTipsView.h */,
+				7F6C5251229BC1BC003A3BCF /* ChooseTipsView.m */,
+			);
+			path = "chooseTips(选择标签)";
+			sourceTree = "<group>";
+		};
 		7F7C05A32266F45B001E4BDB /* BusinessArea(商圈) */ = {
 			isa = PBXGroup;
 			children = (
@@ -3340,6 +3352,7 @@
 		860CF2ED213CE33100C68916 /* NewPro(新增功能) */ = {
 			isa = PBXGroup;
 			children = (
+				7F6C524F229BC1A1003A3BCF /* chooseTips(选择标签) */,
 				7FAB74BF2296A06A002CAEA3 /* phoneToPikerCell(选择多张图片) */,
 				7F7C05A32266F45B001E4BDB /* BusinessArea(商圈) */,
 				861E14F621D7139200B31BB5 /* CardList(卡券列表) */,
@@ -4340,6 +4353,7 @@
 				68600BE31EE68D8E0090B133 /* StarEvaluator.m in Sources */,
 				68A780C21EF12CF8009299E0 /* PayDetailTwoTableViewCell.m in Sources */,
 				7C4BD7E122992308002BB1A2 /* UIResponder+Event.m in Sources */,
+				7F6C5252229BC1BC003A3BCF /* ChooseTipsView.m in Sources */,
 				6801C57E1F59070A00EB21A7 /* FloorInfoViewController.m in Sources */,
 				68BDA1911ED2BE73005749B9 /* ScanningQRCodeView.m in Sources */,
 				6841640F1EB1807900E8EDFB /* CCFlipAnimation.m in Sources */,
