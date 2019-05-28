@@ -20,6 +20,7 @@
 #import "MapFunViewController.h"
 #import <IQKeyboardManager.h>
 #import "BusinessAreaViewController.h"
+#import "ChooseTipsView.h"
 @interface StoreSetViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,IDAddressPickerViewDataSource,UITextViewDelegate,UITextViewDelegate>
 {
     float offset;
@@ -117,6 +118,9 @@
     _tableview.hidden=YES;
     [self addRightButton];
     self.keyTableView = _tableview;
+    [ChooseTipsView startChooseTipsCallBack:^(NSString * _Nonnull values) {
+        
+    }];
 }
 -(void)addRightButton
 {
