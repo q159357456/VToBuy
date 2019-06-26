@@ -52,6 +52,8 @@
 @property(nonatomic,copy)NSString *IsCashManager;
 @property(nonatomic,copy)NSString *circleCode;
 @property(nonatomic,copy)NSString *circleName;
+@property(nonatomic,copy)NSString *shoplabel;
+
 
 +(NSMutableArray*)getDataWithDic:(NSDictionary*)dic;
 

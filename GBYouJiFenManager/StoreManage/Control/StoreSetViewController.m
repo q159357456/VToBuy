@@ -56,6 +56,7 @@
 @property(nonatomic,copy)NSString *ShopCategory;
 @property(nonatomic,copy)NSString *circleCode;
 @property(nonatomic,copy)NSString *circleName;
+@property(nonatomic,copy)NSString *shoplabel;
 /**
  营业时间
  */
@@ -112,15 +113,13 @@
     self.isUpdate = self.model.IsUpdate;
     self.circleCode = self.model.circleCode?self.model.circleCode:@"";
     self.circleName = self.model.circleName?self.model.circleName:@"";
+    self.shoplabel = self.model.shoplabel;
     [self getbusinessDataWithStr:self.model.ShopCategory];
     //[self addKeyBoardNotify];
-    _titleArray=@[@"店铺名称",@"店铺图标",@"店铺电话",@"联系人",@"行业类型",@"商户结算",@"地区",@"详细地址",@"商圈",@"坐标",@"参与抽奖"];
+    _titleArray=@[@"店铺名称",@"店铺图标",@"店铺电话",@"联系人",@"行业类型",@"商家标签",@"商户结算",@"地区",@"详细地址",@"商圈",@"坐标",@"参与抽奖"];
     _tableview.hidden=YES;
     [self addRightButton];
     self.keyTableView = _tableview;
-    [ChooseTipsView startChooseTipsCallBack:^(NSString * _Nonnull values) {
-        
-    }];
 }
 -(void)addRightButton
 {
@@ -193,7 +192,7 @@
                 cell = [[NSBundle mainBundle]loadNibNamed:@"AddDetailTableViewCell" owner:nil options:nil][0];
             }
             //参与抽奖
-            if (indexPath.row == 10) {
+            if (indexPath.row == 11) {
                 cell.nameLable.text=_titleArray[indexPath.row];
                 cell.inputText.enabled = NO;
                 _drawSwitch = [[UISwitch alloc]init];
@@ -205,12 +204,12 @@
                 [_drawSwitch addTarget:self action:@selector(trunOnWith:) forControlEvents:UIControlEventValueChanged];
                 [_drawSwitch setOn:[self.isUpdate isEqualToString:@"True"]?YES:NO];
             }else{
-                if (indexPath.row==9) {
+                if (indexPath.row==10) {
                     //坐标
                     cell.inputText.textAlignment = NSTextAlignmentRight;
                     cell.inputText.enabled=NO;
                 }
-                if (indexPath.row == 8) {
+                if (indexPath.row == 9 || indexPath.row == 5) {
                     //商圈
                     cell.inputText.enabled=NO;
                     
@@ -294,6 +293,13 @@
             break;
         case 5:
         {
+            //行业类型
+            cell.inputText.text=self.shoplabel;
+            
+        }
+            break;
+        case 6:
+        {
              //折扣
             float dis = [_model.ShopDiscount floatValue]*10;
             NSString *disStr = [NSString stringWithFormat:@"%.1f折",dis];
@@ -301,7 +307,7 @@
             
         }
             break;
-        case 6:
+        case 7:
         {
              //地区
              cell.inputText.textColor=[UIColor blackColor];
@@ -312,15 +318,15 @@
             
         }
             break;
-        case 7:
+        case 8:
         {
              //详细地址
              cell.inputText.textColor=[UIColor blackColor];
-              cell.inputText.text=_model.Address;
+              cell.inputText.text=self.detailAdress;
             
         }
             break;
-        case 8:
+        case 9:
         {
             //商圈
             cell.inputText.textColor=[UIColor blackColor];
@@ -328,7 +334,7 @@
             
         }
             break;
-        case 9:
+        case 10:
         {
              //坐标
              cell.inputText.textColor=[UIColor blackColor];
@@ -367,7 +373,7 @@
         pic.title=@"上传图片";
         [self.navigationController pushViewController:pic animated:YES];
     }
-    if (indexPath.row==9) {
+    if (indexPath.row==10) {
         NSLog(@"介入地图");
         if (self.cityName.length&&self.detailAdress.length)
         {
@@ -389,7 +395,7 @@
         }
     }
     
-    if (indexPath.row==8){
+    if (indexPath.row==9){
         //商圈
         if (!self.AreaCode.length) {
             [QMUITips showInfo:@"请先选择地址才能选择商圈"];
@@ -405,6 +411,16 @@
             
         };
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    if (indexPath.row == 5) {
+        DefineWeakSelf;
+        [ChooseTipsView startChooseTipsCallBack:^(NSString * _Nonnull values) {
+//            NSLog(@"values==>%@",values);
+            weakSelf.shoplabel = values;
+            [weakSelf.tableview reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:NO] ;
+            
+        }];
     }
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPat{
@@ -456,14 +472,14 @@
             
         }
             break;
-        case 6:
+        case 7:
         {
             //折扣
             return NO;
             
         }
             break;
-        case 7:
+        case 8:
         {
             //地区
           
@@ -488,7 +504,7 @@
                         //确定
                         weakSelf.areaDic=dic;
                         [weakSelf getprovinceCodeWithStr:dic[@"Province"]];
-                        UITextField *textField=[weakSelf.tableview viewWithTag:7];
+                        UITextField *textField=[weakSelf.tableview viewWithTag:8];
                         weakSelf.provinceName=dic[@"Province"];
                         weakSelf.cityName=dic[@"CityKey"];
                         weakSelf.AreaName=dic[@"AreaKey"];
@@ -512,7 +528,7 @@
             
         }
             break;
-        case 8:
+        case 9:
         {
             //详细地址
             //获取textfiled在view上的frame
@@ -523,7 +539,7 @@
             
         }
             break;
-        case 9:
+        case 10:
         {
             //商圈
             return NO;
@@ -531,7 +547,7 @@
             
         }
             break;
-        case 10:
+        case 11:
         {
             //坐标设置
             return NO;
@@ -757,16 +773,17 @@
             
         }
             break;
-        case 8:
+        case 9:
         {
             //详细地址
                self.detailAdress=textField.text;
+  
         
             
             
         }
             break;
-        case 9:
+        case 10:
         {
           
             
@@ -825,7 +842,7 @@
         self.Remark=@"";
     }
     NSDictionary *jsonDic;
-    jsonDic=@{@"Command":@"Edit",@"TableName":@"CMS_Shop",@"Data":@[@{@"Latitude":self.latitude,@"Contact":self.Contact,@"cityName":self.cityName,@"boroName":self.AreaName,@"Phone":self.phone,@"cityCode":self.cityCode,@"provName":self.provinceName,@"Longitude":self.longitude,@"Address":self.detailAdress,@"boroCode":self.AreaCode,@"provCode":self.provinceCode,@"COMPANY":self.model.COMPANY,@"SHOPID":self.model.SHOPID,@"Remark":self.Remark,@"IsUpdate":self.isUpdate,@"circleCode":self.circleCode,@"circleName":self.circleName}]};
+    jsonDic=@{@"Command":@"Edit",@"TableName":@"CMS_Shop",@"Data":@[@{@"Latitude":self.latitude,@"Contact":self.Contact,@"cityName":self.cityName,@"boroName":self.AreaName,@"Phone":self.phone,@"cityCode":self.cityCode,@"provName":self.provinceName,@"Longitude":self.longitude,@"Address":self.detailAdress,@"boroCode":self.AreaCode,@"provCode":self.provinceCode,@"COMPANY":self.model.COMPANY,@"SHOPID":self.model.SHOPID,@"Remark":self.Remark,@"IsUpdate":self.isUpdate,@"circleCode":self.circleCode,@"circleName":self.circleName,@"shoplabe":self.shoplabel?:@""}]};
     NSData *data1=[NSJSONSerialization dataWithJSONObject:jsonDic options:kNilOptions error:nil];
     NSString *jsonStr=[[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
     NSLog(@"%@",jsonStr);
@@ -853,6 +870,7 @@
             self.model.IsUpdate = self.isUpdate;
             self.model.circleName = self.circleName;
             self.model.circleCode = self.circleCode;
+            self.model.shoplabel = self.shoplabel;
             [[FMDBMember shareInstance]updateUser:self.model];
             [self alertShowWithStr:@"修改成功"];
             

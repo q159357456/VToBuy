@@ -11,6 +11,7 @@
 @implementation MemberModel
 +(NSMutableArray*)getDataWithDic:(NSDictionary*)dic
 {
+//    NSLog(@"dic==>%@",dic);
     NSMutableArray *datArray=[NSMutableArray array];
     
     
@@ -29,6 +30,7 @@
 
 +(NSMutableArray*)getDataWithDicPerson:(NSDictionary*)dic
 {
+//    NSLog(@"dic==>%@",dic);
     NSMutableArray *datArray=[NSMutableArray array];
     
     
